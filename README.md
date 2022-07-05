@@ -170,27 +170,53 @@ grub-install --target=x86_64-efi --bootloader-id=grub
 grub-mkconfig -o /boot/grub/grub.cfg
 ````
 
+## Reboot
+
+Exit from chroot shell and unmount installation drive
+
+````
+exit
+umount -R /mnt
+reboot
+````
+
+Once rebooted, login as standard user to complete.
+
+
 ## Get tools for AUR
 
 ````
-vim /etc/pacman.conf
+pacman -Sy git
 
-> [archlinuxfr]
-> SigLevel = Never
-> Server = http://repo.archlinux.fr/$arch
-
-pacman -Sy yaourt
-````
-
-## XOrg
+cd /opt
+git clone https://github.com/Jguer/yay
 
 ````
 
-pacman -S xorg-server
-pacman -S xf86-video-intel
-pacman -S budgie-desktop budgie-desktop-view budgie-screensaver budgie-control-center
+## XOrg + Budgie
 
 ````
 
+yay -S xorg-server
+yay -S xf86-video-intel
+yay -S budgie-desktop budgie-desktop-view budgie-screensaver budgie-control-center lightdm lightdm-slick-greeter lightdm-settings
+
+# not sure if this is still needed, remove and check
+vim ~/.xinitrc
+
+> export XDG_CURRENT_DESKTOP=Budgie:GNOME
+> exec budgie-desktop
+
+````
+
+## Extras
+
+as currently installed there is nothing but the bare minimum, not even a termina or browser
+
+````
+yay -Sy kitty google-chrome
+````
+
+Reboot and you should see the greeter to login to Budgie Desktop
 
 Credit: https://www.freecodecamp.org/news/how-to-install-arch-linux/
