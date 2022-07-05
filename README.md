@@ -152,3 +152,45 @@ This applies updates CPU updates
 ````
 pacman -S intel-ucode
 ````
+
+## Bootloader
+
+Basics
+
+````
+pacman -S grub efibootmgr
+````
+
+EFI Folder
+
+````
+mkdir /boot/efi
+mount /dev/sda1 /boot/efi
+grub-install --target=x86_64-efi --bootloader-id=grub
+grub-mkconfig -o /boot/grub/grub.cfg
+````
+
+## Get tools for AUR
+
+````
+vim /etc/pacman.conf
+
+> [archlinuxfr]
+> SigLevel = Never
+> Server = http://repo.archlinux.fr/$arch
+
+pacman -Sy yaourt
+````
+
+## XOrg
+
+````
+
+pacman -S xorg-server
+pacman -S xf86-video-intel
+pacman -S budgie-desktop budgie-desktop-view budgie-screensaver budgie-control-center
+
+````
+
+
+Credit: https://www.freecodecamp.org/news/how-to-install-arch-linux/
