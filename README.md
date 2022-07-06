@@ -190,33 +190,37 @@ pacman -Sy git
 
 cd /opt
 git clone https://github.com/Jguer/yay
+cd yay
+makepkg -si
 
 ````
 
 ## XOrg + Budgie
 
 ````
-
 yay -S xorg-server
 yay -S xf86-video-intel
 yay -S budgie-desktop budgie-desktop-view budgie-screensaver budgie-control-center lightdm lightdm-slick-greeter lightdm-settings
-
-# not sure if this is still needed, remove and check
-vim ~/.xinitrc
-
-> export XDG_CURRENT_DESKTOP=Budgie:GNOME
-> exec budgie-desktop
-
 ````
 
 ## Extras
 
-as currently installed there is nothing but the bare minimum, not even a termina or browser
+As currently installed there is nothing but the bare minimum, not even a terminal or browser
 
 ````
-yay -Sy kitty google-chrome
+yay -Sy kitty google-chrome zsh asdf-vm neovim powertop-auto-tune nerd-fonts-meslo nerdfetch
 ````
 
 Reboot and you should see the greeter to login to Budgie Desktop
+
+## Look and Feel
+
+Get thing looking the way I like them
+
+````
+yay -Sy papirus-icon-theme materia-theme
+````
+
+Next it's all languages and runtimes and dev tools
 
 Credit: https://www.freecodecamp.org/news/how-to-install-arch-linux/
