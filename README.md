@@ -259,6 +259,27 @@ Restart the shell and run through the configuration of Powerlevel10k theme.
 
 ### Languages
 
+Install prerequisites for Python
+
+````
+yay -Sy --needed openssl zlib xz tk
+````
+
+Install languages and set globally
+
+````
+asdf plugin add nodejs
+asdf plugin add golang
+asdf plugin add python
+
+asdf install nodejs latest:16
+asdf install golang lastest
+asdf install python latest
+
+asdf global nodejs latest:16
+asdf gloabal golang latest
+asdf python latest
+````
 
 
 Credit: https://www.freecodecamp.org/news/how-to-install-arch-linux/
