@@ -208,20 +208,22 @@ yay -S budgie-desktop budgie-desktop-view budgie-screensaver budgie-control-cent
 As currently installed there is nothing but the bare minimum, not even a terminal or browser
 
 ````
-yay -Sy kitty google-chrome zsh asdf-vm neovim powertop-auto-tune nerd-fonts-meslo nerdfetch
+yay -Sy kitty google-chrome zsh asdf-vm neovim powertop-auto-tune nerd-fonts-meslo nerdfetch ulauncher
 ````
 
 Reboot and you should see the greeter to login to Budgie Desktop
 
 ## Look and Feel
 
-Get thing looking the way I like them
+Get things looking the way I like them
 
 ````
 yay -Sy papirus-icon-theme materia-theme
 ````
+Now choose these in Budgie Desktop Manager.
 
-Next it's all languages and runtimes and dev tools
+Next it's all languages and runtimes and dev tools.
+
 
 ## Tools
 
