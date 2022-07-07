@@ -223,4 +223,42 @@ yay -Sy papirus-icon-theme materia-theme
 
 Next it's all languages and runtimes and dev tools
 
+## Tools
+
+### Shell
+
+We already have zsh from earlier. Using a direct install of oh-my-zsh as the AUR package seems to have issues. Nerd font was also installed earlier. Install Powerlevel10K and Auto-suggestions. Enabling auto suggestions and ASDF.
+
+Open kitty settings ctrl-shift-F2
+
+````
+> font_family MesloLGS NF
+> font_size 15.0
+
+> tab_bar_edge top
+
+````
+
+Configure zsh
+
+````
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+nvim .zshrc
+
+> ZSH_THEME="powerlevel10k/powerlevel10k"
+> plugins=(git zsh-autosuggestions asdf aliases)
+````
+
+Restart the shell and run through the configuration of Powerlevel10k theme.
+
+
+### Languages
+
+
+
 Credit: https://www.freecodecamp.org/news/how-to-install-arch-linux/
