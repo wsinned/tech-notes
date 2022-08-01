@@ -285,3 +285,14 @@ asdf python latest
 
 
 Credit: https://www.freecodecamp.org/news/how-to-install-arch-linux/
+
+### Maintenance
+
+I found out the hard way that if you don't update frequently (away for a 2 weeks holiday) you can end up in a sitation where the signing keys are out of date. The simplest solution is to to this
+
+````
+pacman -Sy archlinux-keyring && pacman -Su
+````
+
+Found in the docs here: https://wiki.archlinux.org/title/Pacman/Package_signing#Upgrade_system_regularly
+
