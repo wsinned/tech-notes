@@ -208,7 +208,7 @@ yay -S budgie-desktop budgie-desktop-view budgie-screensaver budgie-control-cent
 As currently installed there is nothing but the bare minimum, not even a terminal or browser
 
 ````
-yay -Sy kitty google-chrome zsh asdf-vm neovim powertop-auto-tune nerd-fonts-meslo nerdfetch ulauncher
+yay -Sy kitty google-chrome zsh asdf-vm neovim powertop-auto-tune nerd-fonts-meslo nerdfetch ulauncher ffmpeg signal-desktop
 ````
 
 Reboot and you should see the greeter to login to Budgie Desktop
