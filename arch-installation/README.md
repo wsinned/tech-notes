@@ -279,8 +279,8 @@ asdf install golang lastest
 asdf install python latest
 
 asdf global nodejs latest:16
-asdf gloabal golang latest
-asdf python latest
+asdf global golang latest
+asdf global python latest
 ````
 
 
