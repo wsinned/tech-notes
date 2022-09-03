@@ -4,7 +4,7 @@
 
 Download the installation media and prepare boot media as described here: https://archlinux.org/download/
 
-Boot from installation media into root account
+Boot from installation media into root account. Ensure that you use UEFI boot mode and not Legacy or BIOS boot mode. Hit F12 to see the boot menu on a Dell e6230.
 
 Select keymap
 
