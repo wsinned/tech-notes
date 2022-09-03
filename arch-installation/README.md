@@ -218,6 +218,11 @@ sudo nvim /etc/pacman.conf
 yay -S xorg-server
 yay -S xf86-video-intel
 yay -S budgie-desktop budgie-desktop-view budgie-screensaver budgie-control-center lightdm lightdm-slick-greeter lightdm-settings
+
+sudo nvim /etc/lightdm/lightdm.conf
+# add lightdm-slick-greeter to greeter-session under [Seat:*] section
+
+sudo systemctl enable lightdm
 ````
 
 ## Extras
@@ -225,7 +230,7 @@ yay -S budgie-desktop budgie-desktop-view budgie-screensaver budgie-control-cent
 As currently installed there is nothing but the bare minimum, not even a terminal or browser
 
 ````
-yay -Sy kitty google-chrome zsh asdf-vm neovim powertop-auto-tune nerd-fonts-meslo nerdfetch ulauncher ffmpeg signal-desktop
+yay -Sy kitty google-chrome zsh asdf-vm powertop-auto-tune nerd-fonts-meslo nerdfetch ulauncher ffmpeg signal-desktop
 ````
 
 Reboot and you should see the greeter to login to Budgie Desktop
