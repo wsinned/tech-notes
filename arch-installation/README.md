@@ -201,8 +201,8 @@ sudo nmcli device wifi connect XX:XX:XX:XX:XX password wifi-password
 pacman -Sy git
 
 cd /opt
-git clone https://github.com/Jguer/yay
-cd yay
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin
 makepkg -si
 
 ````
