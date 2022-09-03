@@ -188,6 +188,12 @@ reboot
 
 Once rebooted, login as standard user to complete.
 
+## Reconnect to network
+
+````
+nmcli device wifi list
+sudo nmcli device wifi connect XX:XX:XX:XX:XX password wifi-password
+````
 
 ## Get tools for AUR
 
