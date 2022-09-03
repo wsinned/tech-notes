@@ -207,6 +207,9 @@ git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si
 
+# uncomment the Color directive
+sudo nvim /etc/pacman.conf
+
 ````
 
 ## XOrg + Budgie
