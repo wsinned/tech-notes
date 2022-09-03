@@ -16,6 +16,9 @@ Double check you are in EFI mode
 
 ````ls /sys/firmware/efi/efivars````
 
+If the efi/efivars folder don't exist, you have booted in legacy BIOS mode. Shutdown and use F12 again to choose a UEFI boot mode.
+
+
 ## Connect to Wifi
 
 ````
