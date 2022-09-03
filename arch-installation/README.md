@@ -122,7 +122,7 @@ vim /etc/vconsole.conf
 > KEYMAP=uk
 ````
 
-### Set up netowrking
+### Set up networking
 
 ````
 vim /etc/hostname
