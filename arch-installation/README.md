@@ -3,6 +3,7 @@
 ## Initial boot
 
 Download the installation media and prepare boot media as described here: https://archlinux.org/download/
+If you don't use a fresh installation image, there will be issues with out of date keys signing the packages. Follow the instructions in [Maintenance](#maintenance)
 
 Boot from installation media into root account. Ensure that you use UEFI boot mode and not Legacy or BIOS boot mode. Hit F12 to see the boot menu on a Dell e6230.
 
