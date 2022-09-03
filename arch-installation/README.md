@@ -145,7 +145,7 @@ systemctl enable NetworkManager
 ### Create non-root user
 
 ````
-useradd -m -G wheel wsinned
+useradd -m -G wheel,sudoers wsinned
 passwd wsinned
 ````
 
