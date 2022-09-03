@@ -2,6 +2,8 @@
 
 ## Initial boot
 
+Download the installation media and prepare boot media as described here: https://archlinux.org/download/
+
 Boot from installation media into root account
 
 Select keymap
