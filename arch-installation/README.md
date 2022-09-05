@@ -229,7 +229,7 @@ sudo systemctl enable lightdm
 As currently installed there is nothing but the bare minimum, not even a terminal or browser
 
 ````
-yay -Sy kitty google-chrome zsh asdf-vm powertop-auto-tune nerd-fonts-meslo nerdfetch ulauncher ffmpeg signal-desktop visual-studio-code-bin
+yay -Sy kitty google-chrome zsh asdf-vm powertop-auto-tune nerd-fonts-meslo nerdfetch ulauncher ffmpeg signal-desktop visual-studio-code-bin video-downloader
 ````
 
 Reboot and you should see the greeter to login to Budgie Desktop
