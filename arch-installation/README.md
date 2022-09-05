@@ -5,7 +5,7 @@
 Download the installation media and prepare boot media as described here: https://archlinux.org/download/
 If you don't use a fresh installation image, there will be issues with out of date keys signing the packages. Follow the instructions in [Maintenance](#maintenance)
 
-Boot from installation media into root account. Ensure that you use UEFI boot mode and not Legacy or BIOS boot mode. Hit F12 to see the boot menu on a Dell e6230.
+Boot from installation media into root account. Ensure that you use UEFI boot mode and not Legacy or BIOS boot mode. Hit F12 to see the boot menu on a Dell e6230 and choose "UEFI:General 5.00"
 
 Select keymap
 
@@ -17,7 +17,7 @@ Double check you are in EFI mode
 
 ````ls /sys/firmware/efi/efivars````
 
-If the efi/efivars folder don't exist, you have booted in legacy BIOS mode. Shutdown and use F12 again to choose a UEFI boot mode.
+If the efi/efivars folders don't exist, you have booted in legacy BIOS mode. Shutdown and use F12 again to choose a UEFI boot mode.
 
 
 ## Connect to Wifi
@@ -78,7 +78,7 @@ pacman -Sy
 ### Bootstrap the system
 
 ````
-pacstrap /mnt base base-devel linux linux-firmware sudo nano vim ntfs-3g networkmanager
+pacstrap /mnt base base-devel linux linux-firmware sudo nano vi neovim ntfs-3g networkmanager
 ````
 
 ## Post installation
@@ -145,7 +145,7 @@ systemctl enable NetworkManager
 ### Create non-root user
 
 ````
-useradd -m -G wheel,sudoers wsinned
+useradd -m -G wheel,sudo wsinned
 passwd wsinned
 ````
 
@@ -198,7 +198,7 @@ sudo nmcli device wifi connect XX:XX:XX:XX:XX password wifi-password
 ## Get tools for AUR
 
 ````
-pacman -Sy git
+sudo pacman -Sy git
 
 cd /opt
 sudo chown wsinned: /opt
@@ -215,8 +215,7 @@ sudo nvim /etc/pacman.conf
 ## XOrg + Budgie
 
 ````
-yay -S xorg-server
-yay -S xf86-video-intel
+yay -S xorg-server xf86-video-intel
 yay -S budgie-desktop budgie-desktop-view budgie-screensaver budgie-control-center lightdm lightdm-slick-greeter lightdm-settings
 
 sudo nvim /etc/lightdm/lightdm.conf
@@ -230,7 +229,7 @@ sudo systemctl enable lightdm
 As currently installed there is nothing but the bare minimum, not even a terminal or browser
 
 ````
-yay -Sy kitty google-chrome zsh asdf-vm powertop-auto-tune nerd-fonts-meslo nerdfetch ulauncher ffmpeg signal-desktop
+yay -Sy kitty google-chrome zsh asdf-vm powertop-auto-tune nerd-fonts-meslo nerdfetch ulauncher ffmpeg signal-desktop visual-studio-code-bin
 ````
 
 Reboot and you should see the greeter to login to Budgie Desktop
