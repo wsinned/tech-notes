@@ -80,7 +80,7 @@ pacman -Sy
 ### Bootstrap the system
 
 ````
-pacstrap /mnt base base-devel linux linux-firmware sudo nano vi neovim ntfs-3g networkmanager
+pacstrap /mnt base base-devel linux linux-firmware sudo vi neovim ntfs-3g networkmanager
 ````
 
 ## Post installation
@@ -112,15 +112,15 @@ ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
 ### Edit and gen locales
 
 ````
-vim /etc/locale.gen
+nvim /etc/locale.gen
 # uncomment needed lines, en_GB.UTF-8, en_US.UTF-8
 
 locale-gen
 
-vim /etc/locale.conf
+nvim /etc/locale.conf
 > LANG=en_GB.UTF-8
 
-vim /etc/vconsole.conf
+nvim /etc/vconsole.conf
 > KEYMAP=uk
 ````
 
@@ -130,7 +130,7 @@ vim /etc/vconsole.conf
 nvim /etc/hostname
 > dw-arch-dell
 
-vim /etc/hosts
+nvim /etc/hosts
 > 127.0.0.1        localhost
 > ::1              localhost
 > 127.0.1.1        dw-arch-dell
