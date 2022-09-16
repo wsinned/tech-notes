@@ -80,7 +80,7 @@ pacman -Sy
 ### Bootstrap the system
 
 ````
-pacstrap /mnt base base-devel linux linux-firmware sudo vi neovim ntfs-3g networkmanager
+pacstrap /mnt base base-devel linux linux-firmware sudo vi neovim ntfs-3g networkmanager avahi nss-mdns
 ````
 
 ## Post installation
@@ -133,7 +133,7 @@ nvim /etc/hostname
 nvim /etc/hosts
 > 127.0.0.1        localhost
 > ::1              localhost
-> 127.0.1.1        dw-arch-dell
+> 127.0.0.1        dw-arch-dell
 
 systemctl enable NetworkManager
 
