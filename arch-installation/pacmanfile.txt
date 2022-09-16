@@ -2,6 +2,7 @@ archlinux-keyring
 asdf-vm
 autoconf
 automake
+avahi
 base
 binutils
 bison
@@ -38,13 +39,14 @@ make
 man-db
 materia-gtk-theme
 mc
-openssh
 nano
 neovim
 nerdfetch
 nerd-fonts-meslo
 networkmanager
+nss-mdns
 ntfs-3g
+openssh
 pacman
 pacmanfile
 papirus-icon-theme

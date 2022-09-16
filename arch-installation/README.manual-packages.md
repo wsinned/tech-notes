@@ -1,5 +1,6 @@
 # arch-installation
-This method uses pacmanfile and ```pacmanfile sync``` for package installation.
+
+This method uses manual package installation. The preferred method is to use the provided pacmanfile and ```pacmanfile sync```
 
 
 ## Initial boot
@@ -127,7 +128,7 @@ vim /etc/vconsole.conf
 ### Set up networking
 
 ````
-nvim /etc/hostname
+vim /etc/hostname
 > dw-arch-dell
 
 vim /etc/hosts
@@ -136,12 +137,6 @@ vim /etc/hosts
 > 127.0.1.1        dw-arch-dell
 
 systemctl enable NetworkManager
-
-nvim /etc/nsswitch.comf
-> hosts: files mymachines mdns4_minimal [NOTFOUND=return] dns mdns4 myhostname
-
-systemctl enable avahi-daemon
-systemctl start avahi-daemon
 ````
 
 ## Setup Users
@@ -220,30 +215,36 @@ sudo nvim /etc/pacman.conf
 
 ````
 
-## Declarative package management
+## XOrg + Budgie
 
 ````
-yay -Sy pacmanfile
+yay -S xorg-server xf86-video-intel
+yay -S budgie-desktop budgie-desktop-view budgie-screensaver budgie-control-center lightdm lightdm-slick-greeter lightdm-settings
 
-# copy the pacmanfile.txt from this repo to ~/.conf/pacmanfile/pacmanfile.txt
-
-pacmanfile sync
-````
-
-## Configure XOrg + Budgie
-
-````
 sudo nvim /etc/lightdm/lightdm.conf
 # add lightdm-slick-greeter to greeter-session under [Seat:*] section
 
 sudo systemctl enable lightdm
 ````
 
+## Extras
+
+As currently installed there is nothing but the bare minimum, not even a terminal or browser
+
+````
+yay -Sy kitty google-chrome zsh asdf-vm powertop-auto-tune nerd-fonts-meslo nerdfetch ulauncher ffmpeg signal-desktop visual-studio-code-bin video-downloader
+````
+
 Reboot and you should see the greeter to login to Budgie Desktop
 
 ## Look and Feel
 
-Choose papirus-icon-theme materia-theme in Budgie Desktop Manager.
+Get things looking the way I like them
+
+````
+yay -Sy papirus-icon-theme materia-theme
+````
+Now choose these in Budgie Desktop Manager.
 
 Next it's all languages and runtimes and dev tools.
 
@@ -252,9 +253,7 @@ Next it's all languages and runtimes and dev tools.
 
 ### Shell
 
-We already have zsh from earlier. Using a direct install of oh-my-zsh as the AUR package seems to have issues. Nerd font was also installed earlier. Install Powerlevel10K and Auto-suggestions. 
-
-Enable auto suggestions and ASDF.
+We already have zsh from earlier. Using a direct install of oh-my-zsh as the AUR package seems to have issues. Nerd font was also installed earlier. Install Powerlevel10K and Auto-suggestions. Enabling auto suggestions and ASDF.
 
 Open kitty settings ctrl-shift-F2
 
@@ -281,12 +280,16 @@ nvim .zshrc
 > plugins=(git zsh-autosuggestions asdf aliases)
 ````
 
-Restart the shell completely and run through the configuration of Powerlevel10k theme.
+Restart the shell and run through the configuration of Powerlevel10k theme.
 
 
 ### Languages
 
-Prerequisites for Python were installed from pacmanfile: openssl zlib xz tk
+Install prerequisites for Python
+
+````
+yay -Sy --needed openssl zlib xz tk
+````
 
 Install languages and set globally
 
