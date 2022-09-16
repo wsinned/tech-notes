@@ -230,6 +230,11 @@ yay -Sy pacmanfile
 
 # copy the pacmanfile.txt from this repo to ~/.conf/pacmanfile/pacmanfile.txt
 
+mkdir -p ~/.config/pacmanfile
+cd ~/.config/pacmanfile
+curl -O -J 'https://raw.githubusercontent.com/wsinned/tech-notes/main/arch-installation/pacmanfile.txt'
+cd ~
+
 pacmanfile sync
 ````
 
