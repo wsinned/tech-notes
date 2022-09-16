@@ -231,6 +231,12 @@ sudo nvim /etc/lightdm/lightdm.conf
 sudo systemctl enable lightdm
 ````
 
+## Power management
+
+````
+sudo systemctl enable powertop
+````
+
 Reboot and you should see the greeter to login to Budgie Desktop
 
 ## Look and Feel
