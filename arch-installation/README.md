@@ -80,7 +80,7 @@ pacman -Sy
 ### Bootstrap the system
 
 ````
-pacstrap /mnt base base-devel linux linux-firmware sudo vi neovim ntfs-3g networkmanager avahi nss-mdns
+pacstrap /mnt base base-devel linux linux-firmware sudo vi neovim ntfs-3g networkmanager avahi nss-mdns intel-ucode grub efibootmgr git
 ````
 
 ## Post installation
@@ -162,21 +162,7 @@ passwd wsinned
 
 ## Additional
 
-### Setup microcode
-
-This applies updates CPU updates
-
-````
-pacman -S intel-ucode
-````
-
 ## Bootloader
-
-Basics
-
-````
-pacman -S grub efibootmgr
-````
 
 EFI Folder
 
@@ -209,8 +195,6 @@ sudo nmcli device wifi connect XX:XX:XX:XX:XX password wifi-password
 ## Get tools for AUR
 
 ````
-sudo pacman -Sy git
-
 cd /opt
 sudo chown wsinned: /opt
 sudo chmod g+w /opt
