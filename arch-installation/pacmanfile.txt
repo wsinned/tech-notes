@@ -26,6 +26,7 @@ grep
 groff
 grub
 gzip
+insync-nemo
 intel-ucode
 kitty
 libtool
@@ -39,7 +40,7 @@ make
 man-db
 materia-gtk-theme
 mc
-nano
+nemo
 neovim
 nerdfetch
 nerd-fonts-meslo
