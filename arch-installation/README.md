@@ -153,7 +153,10 @@ systemctl start avahi-daemon
 ### Create non-root user
 
 ````
-useradd -m -G wheel,sudo wsinned
+useradd -m -G wheel wsinned
+visudo /etc/sudoers
+# uncomment line to allow wheel WITH password
+
 passwd wsinned
 ````
 
