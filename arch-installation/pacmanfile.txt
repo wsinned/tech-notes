@@ -9,6 +9,7 @@ bison
 budgie-control-center
 budgie-desktop
 budgie-desktop-view
+budgie-extras
 budgie-screensaver
 duf
 efibootmgr
