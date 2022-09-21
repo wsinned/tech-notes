@@ -27,6 +27,7 @@ grep
 groff
 grub
 gzip
+htop
 insync-nemo
 intel-ucode
 kitty
@@ -42,11 +43,16 @@ man-db
 materia-gtk-theme
 mc
 nemo
+nemo-fileroller
 neovim
 nerdfetch
-nerd-fonts-meslo
+nerd-fonts-complete
 networkmanager
 nss-mdns
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+noto-fonts-extra
 ntfs-3g
 openssh
 pacman
@@ -54,7 +60,7 @@ pacmanfile
 papirus-icon-theme
 patch
 pkgconf
-powertop-auto-tune
+powertop
 sed
 signal-desktop
 slack-desktop
@@ -70,3 +76,5 @@ xf86-video-intel
 xorg-server
 yay-bin
 zsh
+
+ubrowse
