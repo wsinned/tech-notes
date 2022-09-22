@@ -73,6 +73,7 @@ vi
 video-downloader
 visual-studio-code-bin
 which
+wireless-regdb
 xf86-video-intel
 xorg-server
 yay-bin
