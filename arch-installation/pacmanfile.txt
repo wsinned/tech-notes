@@ -80,3 +80,10 @@ yay-bin
 zsh
 
 ubrowse
+
+tlpui
+tlp-rdw
+smartmontools
+cairo
+gobject-introspection
+gtk3
