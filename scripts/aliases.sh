@@ -4,7 +4,7 @@ alias ll='ls -lh'
 alias la='ls -alh'
 alias v='nvim'
 # alias vs='code-insiders'
-alias vs='code-oss'
+alias vs='code'
 # alias notes='code ~/OneDrive/Writing'
 
 # git aliases
