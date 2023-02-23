@@ -11,6 +11,7 @@ budgie-desktop
 budgie-desktop-view
 budgie-extras
 budgie-screensaver
+cups
 direnv
 duf
 efibootmgr
@@ -57,6 +58,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 ntfs-3g
+ntp
 openssh
 pacman
 pacmanfile
@@ -86,9 +88,6 @@ ubrowse
 tlpui
 tlp-rdw
 smartmontools
-#cairo
-#gobject-introspection
-#gtk3
 
 evernote-beta-bin
 gnome-keyring
@@ -100,15 +99,7 @@ shutter
 tutanota-desktop-bin
 authy
 postman-bin
-amusiz
 
-lutris-git
-
-lutris-wine-git
-lib32-mesa 
-vulkan-intel 
-lib32-vulkan-intel 
-vulkan-icd-loader 
+lib32-mesa
 lib32-vulkan-icd-loader
-libretro-mame-git
-lib32-assimp
+
