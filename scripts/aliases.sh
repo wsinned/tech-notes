@@ -22,3 +22,8 @@ alias ga="git add --all"
 #network switcher
 # alias wifi='~/scripts/network-switcher.py'
 
+if [[ -f ~/scripts/python/createNotes.py ]]; then
+    alias thisWeek="python ~/scripts/python/createNotes.py --thisWeek"
+    alias nextWeek="python ~/scripts/python/createNotes.py --nextWeek"
+    alias lastWeek="python ~/scripts/python/createNotes.py --lastWeek"
+fi
