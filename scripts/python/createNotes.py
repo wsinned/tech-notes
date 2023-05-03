@@ -2,6 +2,7 @@ from datetime import date, timedelta
 from pathlib import Path
 from subprocess import call
 import argparse
+import os
 
 class TargetDate:
 
@@ -21,7 +22,7 @@ class TargetDate:
         return self.weekStarting.strftime("%m")
     
 class Notes:
-    rootpath = Path.home().joinpath("Google Drive", "My Drive", "Notes")
+    rootpath = Path.home().joinpath(os.getenv('NOTES_ROOT'))
     workspace = rootpath.joinpath("notes.code-workspace")
 
     def createFile(self, week: TargetDate):
@@ -50,9 +51,12 @@ def getMonday(theDate: date):
     return theDate.replace(day=theDate.day - (theDate.isoweekday()-1))
 
 def init_argparse() -> argparse.ArgumentParser:
+    help="Open a markdown notes file for the requested week in a VS Code workspace."
+    help+=" Requires the NOTES_ROOT environment variable to be set."
+
     parser = argparse.ArgumentParser(
         usage="%(prog)s [OPTION]",
-        description="Open a markdown notes file for the requested week in a VS Code workspace."
+        description=help
     )
     parser.add_argument(
         "-v", "--version", action="version",
@@ -73,6 +77,9 @@ def main() -> None:
         delta = timedelta(7)
     elif args.lastWeek:
         delta = timedelta(-7)
+    else:
+        parser.print_help()
+        exit()
 
     monday = getMonday(date.today()) + delta
     thisWeek = TargetDate(monday)
