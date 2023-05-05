@@ -29,7 +29,7 @@ class Notes:
         path = Path.joinpath(Notes.rootpath, week.toPathYear(), week.toPathMonth())
         
         if not path.exists():
-            Path.mkdir(path)
+            path.mkdir(parent=True)
 
         Notes.note = Path.joinpath(path, f"{week.toFileDate()}-Weekly-log.md")
         if not Notes.note.exists():
