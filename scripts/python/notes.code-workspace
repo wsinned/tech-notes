@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "2023/03"
+		},
+		{
+			"path": "../../../Library/CloudStorage/GoogleDrive-dennis.woodruff@complyadvantage.com/My Drive/Notes/2023/04"
+		},
+		{
+			"path": "../../../Library/CloudStorage/GoogleDrive-dennis.woodruff@complyadvantage.com/My Drive/Notes"
+		}
+	],
+	"settings": {
+		"files.autoSave": "afterDelay",
+		"editor.fontSize": 14,
+		"zenMode.fullScreen": false,
+		"editor.inlineSuggest.enabled": false,
+		"editor.quickSuggestions": {
+			"other": "off"
+		},
+		"editor.tabSize": 2,
+		"editor.wordWrap": "on",
+		"markdown-preview-enhanced.previewTheme": "atom-material.css"
+	}
+}
