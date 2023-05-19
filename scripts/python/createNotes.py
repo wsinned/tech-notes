@@ -3,52 +3,53 @@ from pathlib import Path
 from subprocess import call
 import argparse
 import os
+import sys
 
 class TargetDate:
 
-    def __init__(self, theDate: date) -> None:
-        self.weekStarting = theDate
+    def __init__(self, the_date: date) -> None:
+        self.week_starting = the_date
 
-    def toFileDate(self):
-        return self.weekStarting.isoformat()
-    
-    def toHeaderDate(self):
-        return self.weekStarting.strftime("%A %d %B %Y")
-    
-    def toPathYear(self):
-        return self.weekStarting.strftime("%Y")
-    
-    def toPathMonth(self):
-        return self.weekStarting.strftime("%m")
-    
+    def to_file_date(self):
+        return self.week_starting.isoformat()
+
+    def to_header_date(self):
+        return self.week_starting.strftime("%A %d %B %Y")
+
+    def to_path_year(self):
+        return self.week_starting.strftime("%Y")
+
+    def to_path_month(self):
+        return self.week_starting.strftime("%m")
+
 class Notes:
     rootpath = Path.home().joinpath(os.getenv('NOTES_ROOT'))
     workspace = rootpath.joinpath("notes.code-workspace")
 
-    def createFile(self, week: TargetDate):
-        path = Path.joinpath(Notes.rootpath, week.toPathYear(), week.toPathMonth())
-        
+    def create_file(self, week: TargetDate):
+        path = Path.joinpath(Notes.rootpath, week.to_path_year(), week.to_path_month())
+
         if not path.exists():
             path.mkdir(parents=True)
 
-        Notes.note = Path.joinpath(path, f"{week.toFileDate()}-Weekly-log.md")
+        Notes.note = Path.joinpath(path, f"{week.to_file_date()}-Weekly-log.md")
         if not Notes.note.exists():
-            Notes.note.write_text(self.getBoilerplate(week))
+            Notes.note.write_text(self.get_boilerplate(week))
 
         return self
 
-    def getBoilerplate(self, week: TargetDate):
-        text = f"# Weekly Plan - W/C {week.toHeaderDate()}"
+    def get_boilerplate(self, week: TargetDate):
+        text = f"# Weekly Plan - W/C {week.to_header_date()}"
         text += "\n\n# 1:1 Notes This Week\n\n\n"
         text += "# Monday\n\n\n# Tuesday\n\n\n# Wednesday\n\n\n# Thursday\n\n\n# Friday\n"
         return text
 
-    def openFile(self, ):
+    def open_file(self, ):
         print(f"Opening {Notes.note.absolute()}")
         call(["code", Notes.workspace, Notes.note])
-        
-def getMonday(theDate: date):
-    return theDate.replace(day=theDate.day - (theDate.isoweekday()-1))
+
+def get_monday(the_date: date):
+    return the_date.replace(day=the_date.day - (the_date.isoweekday()-1))
 
 def init_argparse() -> argparse.ArgumentParser:
     help="Open a markdown notes file for the requested week in a VS Code workspace."
@@ -70,7 +71,7 @@ def init_argparse() -> argparse.ArgumentParser:
 def main() -> None:
     parser = init_argparse()
     args = parser.parse_args()
-   
+
     if args.thisWeek:
         delta = timedelta(0)
     elif args.nextWeek:
@@ -79,11 +80,11 @@ def main() -> None:
         delta = timedelta(-7)
     else:
         parser.print_help()
-        exit()
+        sys.exit()
 
-    monday = getMonday(date.today()) + delta
-    thisWeek = TargetDate(monday)
-    Notes().createFile(thisWeek).openFile()
+    monday = get_monday(date.today()) + delta
+    this_week = TargetDate(monday)
+    Notes().create_file(this_week).open_file()
 
 if __name__ == "__main__":
     main()
