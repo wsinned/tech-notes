@@ -27,8 +27,10 @@ class TargetDate:
 
 
 class Notes:
-    rootpath = Path.home().joinpath(os.getenv('NOTES_ROOT'))
+    rootenv = os.getenv('NOTES_ROOT') or "~"
+    rootpath = Path.home().joinpath(rootenv)
     workspace = rootpath.joinpath("notes.code-workspace")
+    note = Path("")
 
     def create_file(self, week: TargetDate):
         path = Path.joinpath(
