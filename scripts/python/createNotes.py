@@ -39,7 +39,7 @@ class Notes:
         
         self.note = Path("")      
 
-    def create_file(self, week: TargetDate):
+    def create_file(self, week: TargetDate, templateFile = None):
         path = Path.joinpath(
             self.rootpath, week.to_path_year(), week.to_path_month())
 
@@ -50,7 +50,18 @@ class Notes:
             path, f"{week.to_file_date()}-Weekly-log.md")
 
         if not self.note.exists():
-            self.note.write_text(self.get_boilerplate(week))
+            if templateFile:
+                template_path = Path(templateFile)
+                try:
+                    template_text = Path.read_text(template_path)
+                    final_text = template_text.replace("HEADER_DATE", week.to_header_date())
+                except:
+                    print("Error")
+                    sys.exit()
+            else:
+                final_text = self.get_boilerplate(week)
+            
+            self.note.write_text(final_text)
 
         return self
 
@@ -104,6 +115,7 @@ def main() -> None:
     parser = init_argparse()
     args = parser.parse_args()
     workspace = None
+    templateFile = None
 
     if args.thisWeek:
         delta = timedelta(0)
@@ -117,12 +129,15 @@ def main() -> None:
 
     if args.workspace:
         workspace = args.workspace
+    
+    if args.useTemplate:
+        templateFile = args.useTemplate
 
     monday = get_monday(date.today()) + delta
     this_week = TargetDate(monday)
 
     rootenv = os.getenv('NOTES_ROOT') or "~"
-    Notes(rootenv, workspace).create_file(this_week).open_file()
+    Notes(rootenv, workspace).create_file(this_week, templateFile).open_file()
 
 
 if __name__ == "__main__":
