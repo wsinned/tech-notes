@@ -27,22 +27,30 @@ class TargetDate:
 
 
 class Notes:
-    rootenv = os.getenv('NOTES_ROOT') or "~"
-    rootpath = Path.home().joinpath(rootenv)
-    workspace = rootpath.joinpath("notes.code-workspace")
-    note = Path("")
+    workspace = None
+
+
+    def __init__(self, rootenv : str, workspace =  None) -> None:
+        self.rootenv = rootenv
+        self.rootpath = Path.home().joinpath(rootenv)
+
+        if workspace is not None:
+            self.workspace = workspace
+        
+        self.note = Path("")      
 
     def create_file(self, week: TargetDate):
         path = Path.joinpath(
-            Notes.rootpath, week.to_path_year(), week.to_path_month())
+            self.rootpath, week.to_path_year(), week.to_path_month())
 
         if not path.exists():
             path.mkdir(parents=True)
 
-        Notes.note = Path.joinpath(
+        self.note = Path.joinpath(
             path, f"{week.to_file_date()}-Weekly-log.md")
-        if not Notes.note.exists():
-            Notes.note.write_text(self.get_boilerplate(week))
+
+        if not self.note.exists():
+            self.note.write_text(self.get_boilerplate(week))
 
         return self
 
@@ -53,9 +61,13 @@ class Notes:
         text += "# Wednesday\n\n\n# Thursday\n\n\n# Friday\n"
         return text
 
-    def open_file(self, ):
-        print(f"Opening {Notes.note.absolute()}")
-        call(["code", Notes.workspace, Notes.note])
+    def open_file(self):
+        if self.workspace:
+            print(f"Opening {self.note.absolute()}, {self.workspace}")
+            call(["code", self.rootpath.joinpath(self.workspace), self.note])
+        else:
+            print(f"Opening {self.note.absolute()}")
+            call(["code", self.note])
 
 
 def get_monday(the_date: date):
@@ -81,12 +93,15 @@ def init_argparse() -> argparse.ArgumentParser:
                         help="Open next week's notes")
     parser.add_argument('--lastWeek', action="store_true",
                         help="Open last week's notes")
+    parser.add_argument('--workspace', action="store",
+                        help="The VS Code workspace to use.")
     return parser
 
 
 def main() -> None:
     parser = init_argparse()
     args = parser.parse_args()
+    workspace = None
 
     if args.thisWeek:
         delta = timedelta(0)
@@ -98,9 +113,14 @@ def main() -> None:
         parser.print_help()
         sys.exit()
 
+    if args.workspace:
+        workspace = args.workspace
+
     monday = get_monday(date.today()) + delta
     this_week = TargetDate(monday)
-    Notes().create_file(this_week).open_file()
+
+    rootenv = os.getenv('NOTES_ROOT') or "~"
+    Notes(rootenv, workspace).create_file(this_week).open_file()
 
 
 if __name__ == "__main__":
