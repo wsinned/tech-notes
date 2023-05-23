@@ -75,26 +75,28 @@ def get_monday(the_date: date):
 
 
 def init_argparse() -> argparse.ArgumentParser:
-    help = "Open a markdown notes file for the requested "
-    help += "week in a VS Code workspace."
-    help += " Requires the NOTES_ROOT environment variable to be set."
+    help_text = """Open a markdown notes file for the requested 
+        week in a VS Code workspace. 
+        Requires the NOTES_ROOT environment variable to be set."""
 
     parser = argparse.ArgumentParser(
-        usage="%(prog)s [OPTION]",
-        description=help
+        usage="%(prog)s [OPTIONS]",
+        description=help_text
     )
     parser.add_argument(
         "-v", "--version", action="version",
         version=f"{parser.prog} version 1.0.0"
     )
-    parser.add_argument('--thisWeek', action="store_true",
+    parser.add_argument("--thisWeek", action="store_true",
                         help="Open this week's notes")
-    parser.add_argument('--nextWeek', action="store_true",
+    parser.add_argument("--nextWeek", action="store_true",
                         help="Open next week's notes")
-    parser.add_argument('--lastWeek', action="store_true",
+    parser.add_argument("--lastWeek", action="store_true",
                         help="Open last week's notes")
-    parser.add_argument('--workspace', action="store",
-                        help="The VS Code workspace to use.")
+    parser.add_argument("--workspace", action="store",
+                        help="The VS Code workspace to use in the NOTES_ROOT folder.")
+    parser.add_argument("--useTemplate", action="store",
+                        help="The path to the template file to use")
     return parser
 
 
