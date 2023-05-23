@@ -29,17 +29,16 @@ class TargetDate:
 class Notes:
     workspace = None
 
-
-    def __init__(self, rootenv : str, workspace =  None) -> None:
+    def __init__(self, rootenv: str, workspace=None) -> None:
         self.rootenv = rootenv
         self.rootpath = Path.home().joinpath(rootenv)
 
         if workspace is not None:
             self.workspace = workspace
-        
-        self.note = Path("")      
 
-    def create_file(self, week: TargetDate, templateFile = None):
+        self.note = Path("")
+
+    def create_file(self, week: TargetDate, templateFile=None):
         path = Path.joinpath(
             self.rootpath, week.to_path_year(), week.to_path_month())
 
@@ -54,14 +53,18 @@ class Notes:
                 template_path = Path(templateFile)
                 try:
                     template_text = Path.read_text(template_path)
-                    final_text = template_text.replace("HEADER_DATE", week.to_header_date())
+                    final_text = template_text.replace(
+                        "HEADER_DATE", week.to_header_date())
                 except:
-                    print("Error")
+                    print("Error reading template.")
                     sys.exit()
             else:
                 final_text = self.get_boilerplate(week)
-            
-            self.note.write_text(final_text)
+
+            try:
+                self.note.write_text(final_text)
+            except:
+                print("Error writing file.")
 
         return self
 
@@ -129,7 +132,7 @@ def main() -> None:
 
     if args.workspace:
         workspace = args.workspace
-    
+
     if args.useTemplate:
         templateFile = args.useTemplate
 
