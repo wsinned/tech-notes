@@ -27,23 +27,16 @@ class TargetDate:
 
 
 class Notes:
-    workspace = None
 
     def __init__(self, rootenv: str, workspace=None) -> None:
         self.rootenv = rootenv
         self.rootpath = Path.home().joinpath(rootenv)
-
-        if workspace is not None:
-            self.workspace = workspace
-
+        self.workspace = workspace
         self.note = Path("")
 
     def create_file(self, week: TargetDate, templateFile=None):
         path = self._note_folder_path(week)
         self.note = self._note_path(week, path)
-
-        if not path.exists():
-            path.mkdir(parents=True)
 
         if not self.note.exists():
             if templateFile:
@@ -70,8 +63,13 @@ class Notes:
             path, f"{week.to_file_date()}-Weekly-log.md")
 
     def _note_folder_path(self, week):
-        return Path.joinpath(
+        path = Path.joinpath(
             self.rootpath, week.to_path_year(), week.to_path_month())
+        
+        if not path.exists():
+            path.mkdir(parents=True)
+
+        return path
 
     def _get_boilerplate(self, week: TargetDate):
         text = f"# Weekly Plan - W/C {week.to_header_date()}"
