@@ -39,14 +39,11 @@ class Notes:
         self.note = Path("")
 
     def create_file(self, week: TargetDate, templateFile=None):
-        path = Path.joinpath(
-            self.rootpath, week.to_path_year(), week.to_path_month())
+        path = self._note_folder_path(week)
+        self.note = self._note_path(week, path)
 
         if not path.exists():
             path.mkdir(parents=True)
-
-        self.note = Path.joinpath(
-            path, f"{week.to_file_date()}-Weekly-log.md")
 
         if not self.note.exists():
             if templateFile:
@@ -59,7 +56,7 @@ class Notes:
                     print("Error reading template.")
                     sys.exit()
             else:
-                final_text = self.get_boilerplate(week)
+                final_text = self._get_boilerplate(week)
 
             try:
                 self.note.write_text(final_text)
@@ -68,7 +65,15 @@ class Notes:
 
         return self
 
-    def get_boilerplate(self, week: TargetDate):
+    def _note_path(self, week, path):
+        return Path.joinpath(
+            path, f"{week.to_file_date()}-Weekly-log.md")
+
+    def _note_folder_path(self, week):
+        return Path.joinpath(
+            self.rootpath, week.to_path_year(), week.to_path_month())
+
+    def _get_boilerplate(self, week: TargetDate):
         text = f"# Weekly Plan - W/C {week.to_header_date()}"
         text += "\n\n# 1:1 Notes This Week\n\n\n"
         text += "# Monday\n\n\n# Tuesday\n\n\n"
@@ -112,6 +117,7 @@ def init_argparse() -> argparse.ArgumentParser:
     parser.add_argument("--useTemplate", action="store",
                         help="The path to the template file to use")
     return parser
+
 
 def process_args():
     parser = init_argparse()
