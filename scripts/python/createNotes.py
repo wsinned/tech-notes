@@ -113,8 +113,7 @@ def init_argparse() -> argparse.ArgumentParser:
                         help="The path to the template file to use")
     return parser
 
-
-def main() -> None:
+def process_args():
     parser = init_argparse()
     args = parser.parse_args()
     workspace = None
@@ -135,6 +134,12 @@ def main() -> None:
 
     if args.useTemplate:
         templateFile = args.useTemplate
+
+    return (workspace, templateFile, delta)
+
+
+def main() -> None:
+    workspace, templateFile, delta = process_args()
 
     monday = get_monday(date.today()) + delta
     this_week = TargetDate(monday)
