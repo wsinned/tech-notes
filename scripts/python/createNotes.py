@@ -40,23 +40,31 @@ class Notes:
 
         if not self.note.exists():
             if templateFile:
-                template_path = Path(templateFile)
-                try:
-                    template_text = Path.read_text(template_path)
-                    final_text = template_text.replace(
-                        "HEADER_DATE", week.to_header_date())
-                except:
-                    print("Error reading template.")
-                    sys.exit()
+                final_text = self._read_template(week, templateFile)
             else:
                 final_text = self._get_boilerplate(week)
 
-            try:
-                self.note.write_text(final_text)
-            except:
-                print("Error writing file.")
+            self._write_note(final_text)
 
         return self
+
+    def _read_template(self, week, templateFile):
+        template_path = Path(templateFile)
+        try:
+            template_text = Path.read_text(template_path)
+            text = template_text.replace(
+                        "HEADER_DATE", week.to_header_date())
+        except:
+            print("Error reading template.")
+            sys.exit()
+        
+        return text
+
+    def _write_note(self, final_text):
+        try:
+            self.note.write_text(final_text)
+        except:
+            print("Error writing file.")
 
     def _note_path(self, week, path):
         return Path.joinpath(
