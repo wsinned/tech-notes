@@ -15,6 +15,7 @@ cups
 direnv
 duf
 efibootmgr
+emacs
 fakeroot
 ffmpeg
 file
