@@ -86,7 +86,7 @@ class Notes:
         text += "# Wednesday\n\n\n# Thursday\n\n\n# Friday\n"
         return text
 
-    def open_file(self):
+    def open_in_editor(self):
         if self.workspace:
             print(f"Opening {self.note.absolute()}, {self.workspace}")
             call(["code", self.rootpath.joinpath(self.workspace), self.note])
@@ -157,7 +157,7 @@ def main() -> None:
     this_week = TargetDate(monday)
 
     rootenv = os.getenv('NOTES_ROOT') or "~"
-    Notes(rootenv, workspace).create_file(this_week, templateFile).open_file()
+    Notes(rootenv, workspace).create_file(this_week, templateFile).open_in_editor()
 
 
 if __name__ == "__main__":
