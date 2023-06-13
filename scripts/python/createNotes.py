@@ -49,14 +49,10 @@ class Notes:
         return self
 
     def _read_template(self, week, templateFile):
-        template_path = Path(templateFile)
-        try:
-            template_text = Path.read_text(template_path)
-            text = template_text.replace(
+
+        with open(Path(templateFile), 'r') as template_file:
+            text = template_file.read().replace(
                         "HEADER_DATE", week.to_header_date())
-        except:
-            print("Error reading template.")
-            sys.exit()
         
         return text
 
