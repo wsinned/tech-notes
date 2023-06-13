@@ -23,7 +23,8 @@ alias ga="git add --all"
 # alias wifi='~/scripts/network-switcher.py'
 
 if [[ -f ~/scripts/python/createNotes.py ]]; then
-    alias thisWeek="python ~/scripts/python/createNotes.py --thisWeek"
-    alias nextWeek="python ~/scripts/python/createNotes.py --nextWeek"
-    alias lastWeek="python ~/scripts/python/createNotes.py --lastWeek"
+    args="--workspace notes.code-workspace --useTemplate '$NOTES_ROOT/Home-weekly-log-template.md'"
+    alias thisWeek="python ~/scripts/python/createNotes.py --thisWeek $args"
+    alias nextWeek="python ~/scripts/python/createNotes.py --nextWeek $args"
+    alias lastWeek="python ~/scripts/python/createNotes.py --lastWeek $args"
 fi
