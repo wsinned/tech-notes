@@ -93,4 +93,35 @@ $ nixos-generate-config --root /mnt
 
 This will have generated a very basic configuration at /etc/nixos/configuration.nix. We will be downloading and overwriting this with our own preconfigured files.
 
-## TODO: Getting our own config
+## Getting our own config
+
+Clone the config repo
+
+````
+$ mkdir -p /mnt/tmp
+
+$ git clone https://github.com/wsinned/tech-notes/ /mnt/tmp/tech-notes
+````
+
+Back up the generated config.
+
+````
+$ mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
+````
+
+Copy the config from the repo to the nixos folder and then run the installation:
+
+````
+$ cp /mnt/tmp/tech-notes/nixos-installation/configuration.nix /etc/nixos/
+
+$ nixos-install
+````
+
+
+
+## Post Home Manager tasks
+Link the config from the our repo:
+
+````
+$ sudo ln ~/tech-notes/nixos-installation/configuration.nix /etc/nixos/configuration.nix
+````
