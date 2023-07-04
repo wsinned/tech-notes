@@ -121,13 +121,14 @@ $ git clone https://github.com/wsinned/tech-notes/ /mnt/tmp/tech-notes
 Back up the generated config.
 
 ````
-$ mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
+$ cd /mnt/etc/nixos
+$ mv configuration.nix configuration.nix.bak
 ````
 
 Copy the config from the repo to the nixos folder and then run the installation:
 
 ````
-$ cp /mnt/tmp/tech-notes/nixos-installation/configuration.nix /etc/nixos/
+$ cp /mnt/tmp/tech-notes/nixos-installation/configuration.nix .
 
 $ nixos-install
 ````
