@@ -99,8 +99,6 @@
     wget
 
     # override themes for budgie
-    materia-theme
-    papirus-icon-theme
     gnome.adwaita-icon-theme
 
   ];
