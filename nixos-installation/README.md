@@ -133,7 +133,17 @@ $ cp /mnt/tmp/tech-notes/nixos-installation/configuration.nix .
 $ nixos-install
 ````
 
+Set a root password when prompted. Then enter the newly installed chroot environment and set the password for main user. Finally reboot.
 
+````
+$ nixos-enter --root /mnt
+
+$ passwd wsinned
+
+$ exit
+
+$ reboot
+````
 
 ## Post Home Manager tasks
 Link the config from the our repo:
