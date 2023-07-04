@@ -172,5 +172,7 @@ $ rm ~/.config/home-manager/home.nix
 
 $ ln ~/tech-notes/nixos-installation/home.nix ~/.config/home-manager/home.nix
 
+$ export NIXPKGS_ALLOW_UNFREE=1
+
 $ home-manager switch
 ````
