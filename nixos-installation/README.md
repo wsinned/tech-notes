@@ -140,6 +140,8 @@ $ nixos-enter --root /mnt
 
 $ passwd wsinned
 
+$ mv /tmp/tech-notes /home/wsinned/tech-notes
+
 $ exit
 
 $ reboot
