@@ -114,8 +114,8 @@
       }
       {
         name = "powerlevel10k-config";
-        src = ./p10k-config;
-        file = "p10k.zsh";
+        src = ~/tech-notes/dotfiles;
+        file = ".p10k.zsh";
       }
     ];
     initExtra = ''
