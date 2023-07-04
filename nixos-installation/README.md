@@ -8,7 +8,7 @@ Write the image to Usb via Etcher or similar.
 
 ## Initial Boot
 
-Insert flash drive and power on. Press F12 (or equivalent) for boot menu and choose UEFI Usb option.
+Insert flash drive and power on. Press F12 (or equivalent) for boot menu and choose UEFI Flash Drive option.
 
 Once at the command prompt type the following commands, ignoring the comments starting with #:
 ````
@@ -21,7 +21,14 @@ $ loadkeys uk
 
 ## Configure wifi
 
-Run wpa_cli and then type the commands prefixed by the > prompt:
+Run
+
+````
+$ sudo systemctl start wpa_supplicant
+
+$ wpa_cli
+````
+and then type the commands prefixed by the > prompt:
 
 ````
 > add_network
