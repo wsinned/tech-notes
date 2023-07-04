@@ -49,6 +49,7 @@ Once you see a `CTRL-EVENT-CONNECTED` message you can quit.
 This is done manually and is destructive. Don't use this if you don't mean it.
 
 ````
+$ wipefs /dev/sda
 
 $ parted /dev/sda
 
@@ -110,6 +111,8 @@ This will have generated a very basic configuration at /etc/nixos/configuration.
 Clone the config repo
 
 ````
+$ nix-env -f '<nixpkgs>' -iA git
+
 $ mkdir -p /mnt/tmp
 
 $ git clone https://github.com/wsinned/tech-notes/ /mnt/tmp/tech-notes
