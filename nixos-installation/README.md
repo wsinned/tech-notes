@@ -145,9 +145,30 @@ $ exit
 $ reboot
 ````
 
-## Post Home Manager tasks
-Link the config from the our repo:
+## Install Home Manager
+
+Base instructions taken from here: https://nix-community.github.io/home-manager/index.html#sec-install-standalone
+
+Add the Home Manager channel
 
 ````
+$ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager
+$ sudo nix-channel --update
+
+$ nix-shell '<home-manager>' -A install
+````
+
+
+Link the config from the our repo and switch to it:
+
+````
+$ sudo rm /etc/nixos/configuration.nix
+
 $ sudo ln ~/tech-notes/nixos-installation/configuration.nix /etc/nixos/configuration.nix
+
+$ rm ~/.config/home-manager/home.nix
+
+$ ln ~/tech-notes/nixos-installation/home.nix ~/.config/home-manager/home.nix
+
+$ home-manager switch
 ````
