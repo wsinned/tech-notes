@@ -49,18 +49,23 @@ Once you see a `CTRL-EVENT-CONNECTED` message you can quit.
 This is done manually and is destructive. Don't use this if you don't mean it.
 
 ````
+
+$ parted /dev/sda
+
 # Create the GPT partition table
-$ parted /dev/sda -- mklabel gpt
+(parted) mklabel gpt
 
 # Add the root partition (reserves 512MB at beginning nad 8GB at end)
-$ parted /dev/sda -- mkpart primary 512MB -8GB
+(parted) mkpart primary 512MB -8GB
 
 # Add the swap partition (last 8GB)
-$ parted /dev/sda -- mkpart primary linux-swap -8GB 100%
+(parted) mkpart primary linux-swap -8GB 100%
 
 # Add the boot partition
-$ parted /dev/sda -- mkpart ESP fat32 1MB 512MB
-$ parted /dev/sda -- set 3 esp on
+(parted) mkpart ESP fat32 1MB 512MB
+(parted) set 3 esp on
+
+(parted) quit
 ````
 
 ## Formatting
