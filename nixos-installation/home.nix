@@ -171,4 +171,11 @@
       rebase = { autoStash = "true"; };
     };
   };
+
+  programs.gh = {
+    enable = true;
+    git_protocol = "https"
+    prompt = "enabled";
+    enableGitCredentialHealper = true;
+  };
 }
