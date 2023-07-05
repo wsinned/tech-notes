@@ -75,6 +75,10 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    ".config/nixpkgs/config.nix".text = ''
+      { allowUnfree = true; }
+    '';
   };
 
   # You can also manage environment variables but you will have to manually
