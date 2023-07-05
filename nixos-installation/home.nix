@@ -18,6 +18,8 @@
     # # "Hello, world!" when run.
     asdf-vm
     authy
+    bitwarden
+    bitwarden-cli
     direnv
     discord
     # etcher # removed as flagged insecure due to electron 12.2.3 being EOL. Investigate further
