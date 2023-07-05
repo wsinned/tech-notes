@@ -21,8 +21,6 @@ $ loadkeys uk
 
 ## Configure wifi
 
-Run
-
 ````
 $ sudo systemctl start wpa_supplicant
 
@@ -118,40 +116,36 @@ $ mkdir -p /mnt/tmp
 $ git clone https://github.com/wsinned/tech-notes/ /mnt/tmp/tech-notes
 ````
 
-Back up the generated config.
-
+Back up the generated config, then copy the config from the repo to the nixos folder and then run the installation:
 ````
 $ cd /mnt/etc/nixos
+
 $ mv configuration.nix configuration.nix.bak
-````
 
-Copy the config from the repo to the nixos folder and then run the installation:
-
-````
 $ cp /mnt/tmp/tech-notes/nixos-installation/configuration.nix .
+
+$ cd /
 
 $ nixos-install
 ````
 
-Set a root password when prompted. Then enter the newly installed chroot environment and set the password for main user. Finally reboot.
+## Set Up User & Install Home Manager
+
+Set a root password when prompted. Then enter the newly installed chroot environment and set the password for main user. Finally assume the new user.
 
 ````
 $ nixos-enter --root /mnt
 
 $ passwd wsinned
 
-$ mv /tmp/tech-notes /home/wsinned/tech-notes
+$ su - wsinned
 
-$ exit
-
-$ reboot
 ````
+Ignore any zsh configuration prompts at this point. 
 
-## Install Home Manager
+While still inside of the chroot environment, acting as the new user, install standalone home-manager. Base instructions taken from here: https://nix-community.github.io/home-manager/index.html#sec-install-standalone
 
-Base instructions taken from here: https://nix-community.github.io/home-manager/index.html#sec-install-standalone
-
-Add the Home Manager channel
+Add the Home Manager channel and install
 
 ````
 $ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager
@@ -160,10 +154,13 @@ $ sudo nix-channel --update
 $ nix-shell '<home-manager>' -A install
 ````
 
-
-Link the config from the our repo and switch to it:
+Move the repo previously cloned from tmp into the user's home folder, link the configs from the repo and switch to it:
 
 ````
+$ sudo mv /tmp/tech-notes ~/tech-notes
+
+$ sudo chown -R wsinned ~/tech-notes
+
 $ sudo rm /etc/nixos/configuration.nix
 
 $ sudo ln ~/tech-notes/nixos-installation/configuration.nix /etc/nixos/configuration.nix
@@ -175,4 +172,14 @@ $ ln ~/tech-notes/nixos-installation/home.nix ~/.config/home-manager/home.nix
 $ export NIXPKGS_ALLOW_UNFREE=1
 
 $ home-manager switch
+````
+
+Clean up, exiting the su session, then the chroot, and then reboot.
+
+````
+$ exit
+
+$ exit
+
+$ reboot
 ````
