@@ -24,6 +24,7 @@
     discord
     # etcher # removed as flagged insecure due to electron 12.2.3 being EOL. Investigate further
     ffmpeg
+    gh
     google-chrome
     gzip
     htop
