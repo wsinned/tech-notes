@@ -48,6 +48,24 @@
     iconTheme = { name = "Papirus"; package = pkgs.papirus-icon-theme; };
     cursorTheme = { name = "Adwaita"; package = pkgs.gnome.adwaita-icon-theme; };
   };
+
+  services.xserver.desktopManager.budgie.extraGSettingsOverrides = ''
+    [com.solus-project.budgie-panel] 
+    dark-theme=true
+    builtin-theme=true
+
+    [com.solus-project.budgie-panel.panels.{5422d17c-1b08-11ee-8295-024274ea44de}]
+    location="top"
+
+    [org.gnome.desktop.interface]
+    cursor-theme="Adwaita"
+
+    [org.buddiesofbudgie.budgie-desktop-view]
+    show=false
+
+    [org.gnome.desktop.background]
+    picture-uri='file:///nix/store/hbiix378alr1wrm9zrgh6z0xq3ggpfia-budgie-backgrounds-1.0/share/backgrounds/budgie/high-trestle-trail.jpg'
+  '';
   
 
   # Configure keymap in X11
