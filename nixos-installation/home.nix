@@ -11,8 +11,6 @@
   # release notes.
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
-  services.xserver.layout = "gb(extd)";
-
   # dconf watch / to check out settings changes
 
   dconf = {
