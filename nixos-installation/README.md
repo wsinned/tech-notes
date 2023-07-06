@@ -47,7 +47,7 @@ Once you see a `CTRL-EVENT-CONNECTED` message you can quit.
 This is done manually and is destructive. Don't use this if you don't mean it.
 
 ````
-$ wipefs /dev/sda
+$ wipefs /dev/sda --all
 
 $ parted /dev/sda
 
