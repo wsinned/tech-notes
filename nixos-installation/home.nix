@@ -196,8 +196,10 @@
 
   programs.gh = {
     enable = true;
-    git_protocol = "https"
-    prompt = "enabled";
-    enableGitCredentialHealper = true;
+    settings = {
+	    git_protocol = "https";
+	    prompt = "enabled";
+    };
+    enableGitCredentialHelper = true;
   };
 }
