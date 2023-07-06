@@ -63,31 +63,6 @@
   services.xserver.layout = "gb(extd)";
   #services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
-  # dconf watch / to check out settings changes
-  dconf = {
-      settings = {
-        "org/gnome/desktop/peripherals/touchpad" = {
-          tap-to-click = true;
-        };
-
-        "org/gnome/desktop/interface" = {
-          cursor-theme = "Adwaita";
-        };
-
-        "com/solus-project.budgie-panel" = {
-          "panels/{5422d17c-1b08-11ee-8295-024274ea44de}" = {
-            location="top";
-          };
-          dark-theme=true;
-          builtin-theme=true;
-        };
-
-        "org/gnome/desktop/background" = {
-          picture-uri="file:///nix/store/hbiix378alr1wrm9zrgh6z0xq3ggpfia-budgie-backgrounds-1.0/share/backgrounds/budgie/high-trestle-trail.jpg";
-        };
-    };
-  };
-  
   # Enable CUPS to print documents.
   services.printing.enable = true;
 

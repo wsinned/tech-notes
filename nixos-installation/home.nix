@@ -33,7 +33,17 @@
       "org/gnome/desktop/background" = {
         picture-uri="file:///nix/store/hbiix378alr1wrm9zrgh6z0xq3ggpfia-budgie-backgrounds-1.0/share/backgrounds/budgie/high-trestle-trail.jpg";
       };
+
+      "org/gnome/desktop/peripherals/touchpad" = {
+        tap-to-click = true;
+      };
+
+      "org/gnome/desktop/interface" = {
+        cursor-theme = "Adwaita";
+      };
+    };
   };
+  
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
