@@ -143,17 +143,6 @@ $ su - wsinned
 ````
 Ignore any zsh configuration prompts at this point. 
 
-While still inside of the chroot environment, acting as the new user, install standalone home-manager. Base instructions taken from here: https://nix-community.github.io/home-manager/index.html#sec-install-standalone
-
-Add the Home Manager channel and install
-
-````
-$ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager
-$ sudo nix-channel --update
-
-$ nix-shell '<home-manager>' -A install
-````
-
 Move the repo previously cloned from tmp into the user's home folder, link the configs from the repo and switch to it:
 
 ````
@@ -169,9 +158,6 @@ $ rm ~/.config/home-manager/home.nix
 
 $ ln ~/tech-notes/nixos-installation/home.nix ~/.config/home-manager/home.nix
 
-$ export NIXPKGS_ALLOW_UNFREE=1
-
-$ home-manager switch
 ````
 
 Clean up, exiting the su session, then the chroot, and then reboot.
@@ -183,3 +169,22 @@ $ exit
 
 $ reboot
 ````
+
+## First Budgie Session
+
+Install standalone home-manager. Base instructions taken from here: https://nix-community.github.io/home-manager/index.html#sec-install-standalone
+
+Can't install home-manager this way - Add the Home Manager channel and install
+
+````
+$ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager
+$ sudo nix-channel --update
+
+$ nix-shell '<home-manager>' -A install
+
+$ export NIXPKGS_ALLOW_UNFREE=1
+
+$ home-manager switch
+````
+
+Reboot for the full changes to take effect.
