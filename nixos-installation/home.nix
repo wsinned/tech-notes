@@ -14,22 +14,12 @@
   # dconf watch / to check out settings changes
 
   dconf = {
+    # these are the only settings that actually work
+    # don't bother with background, dark mode etc.
     settings = {
       #icons on budgie desktop disabled
       "org/buddiesofbudgie/budgie-desktop-view" = {
         show = false;
-      };
-
-      "com/solus-project.budgie-panel" = {
-        "panels/{5422d17c-1b08-11ee-8295-024274ea44de}" = {
-          location="top";
-        };
-        dark-theme=true;
-        builtin-theme=true;
-      };
-
-      "org/gnome/desktop/background" = {
-        picture-uri="file:///nix/store/hbiix378alr1wrm9zrgh6z0xq3ggpfia-budgie-backgrounds-1.0/share/backgrounds/budgie/high-trestle-trail.jpg";
       };
 
       "org/gnome/desktop/peripherals/touchpad" = {
