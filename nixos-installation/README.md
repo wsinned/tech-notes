@@ -116,7 +116,7 @@ $ mkdir -p /mnt/tmp
 $ git clone https://github.com/wsinned/tech-notes/ /mnt/tmp/tech-notes
 ````
 
-Back up the generated config, then copy the config from the repo to the nixos folder and then run the installation:
+Back up the generated config, then copy the config and home manager config from the repo to the nixos folder. Add the home manager channel and then run the installation:
 ````
 $ cd /mnt/etc/nixos
 
@@ -124,7 +124,13 @@ $ mv configuration.nix configuration.nix.bak
 
 $ cp /mnt/tmp/tech-notes/nixos-installation/configuration.nix .
 
+$ cp /mnt/tmp/tech-notes/nixos-installation/home.nix .
+
 $ cd /
+
+$ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager
+
+$ sudo nix-channel --update
 
 $ nixos-install
 ````
@@ -141,7 +147,7 @@ $ passwd wsinned
 $ su - wsinned
 
 ````
-Ignore any zsh configuration prompts at this point. 
+Ignore any zsh configuration prompts at this point. A fully configured Zsh/Powerlevel10k environment will be available after rebooting.
 
 Move the repo previously cloned from tmp into the user's home folder, link the configs from the repo and switch to it:
 
@@ -152,11 +158,11 @@ $ sudo chown -R wsinned ~/tech-notes
 
 $ sudo rm /etc/nixos/configuration.nix
 
+$ sudo rm /etc/nixos/home.nix
+
 $ sudo ln ~/tech-notes/nixos-installation/configuration.nix /etc/nixos/configuration.nix
 
-$ rm ~/.config/home-manager/home.nix
-
-$ ln ~/tech-notes/nixos-installation/home.nix ~/.config/home-manager/home.nix
+$ sudo ln ~/tech-notes/nixos-installation/home.nix /etc/nixos/home.nix
 
 ````
 
@@ -169,22 +175,3 @@ $ exit
 
 $ reboot
 ````
-
-## First Budgie Session
-
-Install standalone home-manager. Base instructions taken from here: https://nix-community.github.io/home-manager/index.html#sec-install-standalone
-
-Can't install home-manager this way - Add the Home Manager channel and install
-
-````
-$ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager
-$ sudo nix-channel --update
-
-$ nix-shell '<home-manager>' -A install
-
-$ export NIXPKGS_ALLOW_UNFREE=1
-
-$ home-manager switch
-````
-
-Reboot for the full changes to take effect.
