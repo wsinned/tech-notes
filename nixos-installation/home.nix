@@ -40,6 +40,7 @@
     # # "Hello, world!" when run.
     asdf-vm
     authy
+    baobab
     bitwarden
     bitwarden-cli
     direnv
@@ -48,6 +49,7 @@
     ffmpeg
     gh
     google-chrome
+    gparted
     gzip
     htop
     insync
