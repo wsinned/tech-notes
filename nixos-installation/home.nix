@@ -38,40 +38,47 @@
   home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    asdf-vm
     authy
     baobab
     bitwarden
     bitwarden-cli
-    direnv
     discord
-    # etcher # removed as flagged insecure due to electron 12.2.3 being EOL. Investigate further
+    firefox
     ffmpeg
-    gh
     google-chrome
     gparted
     gzip
     htop
     insync
     jre_minimal
-    meld
+    meslo-lgs-nf
+    neofetch
     p7zip
-    postman
     powertop
     shutter
     signal-desktop 
     slack
-    kitty
-    neofetch
     tlp
     tutanota-desktop
-    vscode
-
-    meslo-lgs-nf
     tree
     ulauncher
     zsh-powerlevel10k
     
+    # generic devtools
+    direnv
+    gh
+    kitty
+    meld
+    postman
+    vscode
+
+    # python tools
+    python311Full
+    python311Packages.pip
+    python311Packages.meson
+    pipx
+
+
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -152,6 +159,7 @@
     initExtra = ''
       bindkey '^f' autosuggest-accept
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      [[ ! -f ~/scripts/aliases.sh ]] || source ~/scripts/aliases.sh 
     '';
   };
 

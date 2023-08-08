@@ -17,16 +17,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
 
-  # Enable swap on luks
-  boot.initrd.luks.devices."luks-68eac8bb-8b2f-46f0-a7f2-536c1a176cda".device = "/dev/disk/by-uuid/68eac8bb-8b2f-46f0-a7f2-536c1a176cda";
-  boot.initrd.luks.devices."luks-68eac8bb-8b2f-46f0-a7f2-536c1a176cda".keyFile = "/crypto_keyfile.bin";
-
-  networking.hostName = "dw-nixos-dell"; # Define your hostname.
+  networking.hostName = "dw-nixos-apollo"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -146,9 +138,6 @@
     git
     mc
     neovim
-    python311Full
-    python311Packages.pip
-    pipx
     wget
 
     # override themes for budgie
