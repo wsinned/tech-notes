@@ -5,7 +5,6 @@
     ./apps/oh-my-zsh.nix
     ./apps/git.nix
     ./apps/gh.nix
-    ./apps/kitty.nix
   ];
 
   home.username = "wsinned";
@@ -14,26 +13,22 @@
   home.packages = with pkgs; [
     asdf-vm
     authy
-    baobab
-    bitwarden
-    bitwarden-cli
+    # baobab
+    # bitwarden-cli
     discord
-    # firefox
     ffmpeg
     # google-chrome
-    gparted
     gzip
-    htop
     jre_minimal
     meslo-lgs-nf
     neofetch
     neovim
     p7zip
-    #powertop
-    shutter
+    # powertop
+    # tlp
     signal-desktop 
     slack
-    #tlp
+
     tutanota-desktop
     tree
     ulauncher
@@ -41,8 +36,6 @@
     
     # generic devtools
     direnv
-    gh
-    #kitty
     meld
     postman
     vscode

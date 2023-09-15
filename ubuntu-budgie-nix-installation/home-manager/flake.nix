@@ -17,14 +17,16 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    homeConfigurations = {
-      wsinned = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."wsinned" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [
-          ./home-manager/home.nix
-        ];
+
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [ ./home-manager/home.nix ];
+
+        # Optionally use extraSpecialArgs
+        # to pass through arguments to home.nix
       };
-    };
   };
 }
 
