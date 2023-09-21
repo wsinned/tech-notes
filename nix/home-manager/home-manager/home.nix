@@ -13,13 +13,12 @@
   home.packages = with pkgs; [
     asdf-vm
     authy
-    # baobab
     # bitwarden-cli
     discord
     ffmpeg
     # google-chrome
     gzip
-    jre_minimal
+
     meslo-lgs-nf
     neofetch
     neovim
@@ -39,6 +38,7 @@
     meld
     postman
     vscode
+
   ];
   programs.home-manager.enable = true;
 }
