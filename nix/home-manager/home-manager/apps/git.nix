@@ -8,6 +8,9 @@
       push = { default = "current"; };
       pull = { rebase = "true"; };
       rebase = { autoStash = "true"; };
+      merge = { tool = "meld"; };
+      diff = { tool = "meld"; };
+      difftool = { prompt = "false"; };
     };
   };
 }

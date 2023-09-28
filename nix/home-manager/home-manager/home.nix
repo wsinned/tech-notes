@@ -38,6 +38,7 @@
     meld
     postman
     vscode
+    pipx
 
   ];
   programs.home-manager.enable = true;
