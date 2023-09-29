@@ -8,7 +8,7 @@
 	    syntaxHighlighting.enable = true;
 	    oh-my-zsh = {
 	      enable = true;
-	      plugins = [ "git" "docker-compose" "docker" ];
+	      plugins = [ "git" "docker-compose" "docker" "asdf" ];
 	    };
 	    initExtraBeforeCompInit = ''
 	      # p10k instant prompt
@@ -32,6 +32,9 @@
 	      bindkey '^f' autosuggest-accept
 	      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 	      [[ ! -f ~/scripts/aliases.sh ]] || source ~/scripts/aliases.sh 
+				
+				# Load asdf
+				. /opt/asdf-vm/asdf.sh
 	    '';
 	  };
 }

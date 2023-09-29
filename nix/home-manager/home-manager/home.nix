@@ -11,14 +11,14 @@
   home.homeDirectory = "/home/wsinned";
   home.stateVersion = "23.05";
   home.packages = with pkgs; [
-    asdf-vm
+    # asdf-vm
     authy
     # bitwarden-cli
     discord
     ffmpeg
     # google-chrome
     gzip
-
+    mc
     meslo-lgs-nf
     neofetch
     neovim
@@ -38,8 +38,7 @@
     meld
     postman
     vscode
-    pipx
-
+    
   ];
   programs.home-manager.enable = true;
 }
