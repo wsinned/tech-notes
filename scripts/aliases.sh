@@ -3,9 +3,7 @@ alias ls='ls -F --color=auto --show-control-chars'
 alias ll='ls -lh'
 alias la='ls -alh'
 alias v='nvim'
-# alias vs='code-insiders'
 alias vs='code'
-# alias notes='code ~/OneDrive/Writing'
 
 # git aliases
 alias g='git'
@@ -22,9 +20,8 @@ alias ga="git add --all"
 #network switcher
 # alias wifi='~/scripts/network-switcher.py'
 
-if [[ -f ~/scripts/python/createNotes.py ]]; then
-    args="--workspace notes.code-workspace --useTemplate '$NOTES_ROOT/Home-weekly-log-template.md'"
-    alias thisWeek="python ~/scripts/python/createNotes.py --thisWeek $args"
-    alias nextWeek="python ~/scripts/python/createNotes.py --nextWeek $args"
-    alias lastWeek="python ~/scripts/python/createNotes.py --lastWeek $args"
-fi
+notes_folder="$HOME/Insync/denniswoodruffuk@gmail.com/Google\ Drive/Notes"
+args="--notesFolder $notes_folder --workspace notes.code-workspace --template Home-weekly-log-template.md"
+alias thisWeek="take-note --thisWeek $args"
+alias nextWeek="take-note --nextWeek $args"
+alias lastWeek="take-note --lastWeek $args"
