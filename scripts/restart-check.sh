@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Checking..."
+
 get_boot_kernel() {
     local get_version=0
     for field in $(file /boot/vmlinuz*); do
@@ -13,13 +15,13 @@ get_boot_kernel() {
     done
 }
 
-rc=1
+rc=0
 
 libs=$(lsof -n +c 0 2> /dev/null | grep 'DEL.*lib' | awk '1 { print $1 ": " $NF }' | sort -u)
 if [[ -n $libs ]]; then
     cat <<< $libs
     echo "# LIBS: reboot required"
-    rc=0
+    rc=1
 fi
 
 active_kernel=$(uname -r)
@@ -27,7 +29,7 @@ current_kernel=$(get_boot_kernel)
 if [[ $active_kernel != $current_kernel ]]; then
     echo "$active_kernel < $current_kernel"
     echo "# KERNEL: reboot required"
-    rc=0
+    rc=1
 fi
 exit $rc
 
