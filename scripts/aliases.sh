@@ -21,7 +21,7 @@ alias ga="git add --all"
 # alias wifi='~/scripts/network-switcher.py'
 
 notes_folder="$HOME/Insync/denniswoodruffuk@gmail.com/Google\ Drive/Notes"
-args="--notesFolder $notes_folder --workspace notes.code-workspace --template Home-weekly-log-template.md"
+args="--notesFolder $notes_folder --workspace notes.code-workspace --template Home-weekly-log-template.md --batch 5"
 alias thisWeek="take-note --thisWeek $args"
 alias nextWeek="take-note --nextWeek $args"
 alias lastWeek="take-note --lastWeek $args"
