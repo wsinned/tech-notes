@@ -36,7 +36,7 @@
     # generic devtools
     direnv
     meld
-    postman
+    # postman
     vscode
     
   ];
