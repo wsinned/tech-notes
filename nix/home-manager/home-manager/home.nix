@@ -5,16 +5,21 @@
     ./apps/oh-my-zsh.nix
     ./apps/git.nix
     ./apps/gh.nix
+    # ./apps/kitty.nix
+    
+    # This can be commented out on initial installation 
+    # to simplify the command line
+    # 
+    ./apps/unfree.nix
+
   ];
 
   home.username = "wsinned";
   home.homeDirectory = "/home/wsinned";
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
   home.packages = with pkgs; [
-    # asdf-vm
-    authy
+    #asdf-vm
     # bitwarden-cli
-    discord
     ffmpeg
     # google-chrome
     gzip
@@ -26,21 +31,21 @@
     # powertop
     # tlp
     signal-desktop 
-    slack
 
     tutanota-desktop
     tree
-    ulauncher
+    # ulauncher
     zsh-powerlevel10k
     
     # generic devtools
     direnv
     meld
-    # postman
-    vscode
     
   ];
+  targets.genericLinux.enable = true;
   programs.home-manager.enable = true;
+  programs.bash.enable = true;
+  fonts.fontconfig.enable = true;
 }
 
 

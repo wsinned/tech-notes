@@ -23,6 +23,7 @@
 	      }
 	      {
 		name = "powerlevel10k-config";
+		#src = ../../dotfiles;
 		src = /home/wsinned/tech-notes/dotfiles;
 		file = ".p10k.zsh";
 	      }
@@ -32,9 +33,7 @@
 	      bindkey '^f' autosuggest-accept
 	      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 	      [[ ! -f ~/scripts/aliases.sh ]] || source ~/scripts/aliases.sh 
-				
-				# Load asdf
-				. /opt/asdf-vm/asdf.sh
+
 	    '';
 	  };
 }
