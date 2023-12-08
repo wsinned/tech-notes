@@ -23,7 +23,7 @@
 	      }
 	      {
 		name = "powerlevel10k-config";
-		src = /home/wsinned/tech-notes/dotfiles;
+		src = ./p10k-config;
 		file = ".p10k.zsh";
 	      }
 	    ];

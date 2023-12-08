@@ -11,5 +11,8 @@
 		# vscode
     	# google-chrome # break glass in case of emergency
 		# meld
+
+		# Insync
+		
 	];
 }

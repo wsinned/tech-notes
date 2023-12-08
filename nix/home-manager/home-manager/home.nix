@@ -28,6 +28,7 @@
     p7zip
     tree
     direnv
+    tlp
 
 
     ## Dependencies for OhMyZsh
@@ -42,7 +43,6 @@
     # meld # has issues on Ubuntu from Nix
     # ulauncher # not needed on Ububtu
     # powertop
-    # tlp
     # mc  # has issues on Ubuntu from Nix
 
     # tutanota-desktop  # Never works well, but does work    

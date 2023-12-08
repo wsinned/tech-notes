@@ -2,7 +2,7 @@
   description = "My Ubuntu Nix";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,8 +14,12 @@
     ...
   }: let
     # system = "aarch64-linux"; If you are running on ARM powered computer
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs { 
+      system = "x86_64-linux"; 
+      config = { 
+        allowUnfree = true; 
+        }; 
+      };
   in {
       homeConfigurations."wsinned" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
