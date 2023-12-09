@@ -1,6 +1,6 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running `nixos-help`).
+# and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
 
@@ -8,20 +8,22 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
     ];
 
-  nixpkgs.config.allowUnfree = true;
-
-  # Use the systemd-boot EFI boot loader.
+  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-
-  networking.hostName = "dw-nixos-apollo"; # Define your hostname.
-  # Pick only one of the below networking options.
+  boot.initrd.luks.devices."luks-5ed9eb46-4414-4e23-a1db-626cc28aeb7f".device = "/dev/disk/by-uuid/5ed9eb46-4414-4e23-a1db-626cc28aeb7f";
+  networking.hostName = "dw-apollo"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  # Enable networking
+  networking.networkmanager.enable = true;
 
   # enable avahi dns
   services.avahi = {
@@ -35,9 +37,6 @@
     };
   };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -60,16 +59,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the Budgie Desktop environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.budgie.enable = true;
-
-  services.xserver.displayManager.lightdm.greeters.slick = {
-    theme = { name = "Materia"; package = pkgs.materia-theme; };
-    iconTheme = { name = "Papirus"; package = pkgs.papirus-icon-theme; };
-    cursorTheme = { name = "Adwaita"; package = pkgs.gnome.adwaita-icon-theme; };
-  };
-  
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -103,53 +95,37 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Enable docker
-  virtualisation.docker.enable = true;
-
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.wsinned = {
     isNormalUser = true;
     home = "/home/wsinned";
     shell = pkgs.zsh;
     description = "Dennis Woodruff";
-    extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
-    openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDa7tK7bQJUVrCRWsc/TVle2UgTcvZnpwY0lV468wxIuRsvIiHBUvJisd27yqTt8sTfhWUVYkOO64PDBdSKqBHNgob5KSjCx9Owg8lkj8bOPAoknWIN6aqC+iLLGgGDv2iidV60VpuvT+Dh49WIn8hvC7zMQaB3bJ3xIm37GmVAvcFN1DWVArp143NqtJUudnqXWT5QL7GOUXnGigx52sZrtlUtAYeR75WcbGysUeKxHAqAa7m7qg0xPm3u3iGDQQ5IrKNj/84+mvO7RCjRYn/63hi7hXw5YBiVJZRkMiML7XQ5EZ9NlSjipqy72Fkjm9STkWlcMQOB0ZlBdAGNkM2/bRzyqodKt/WPYdhq2qgusfEclzbizlZXZtfMqTu6MUiaB0s8FbLkroqrueyeQjhx9Nff6+9YmWnThwz5TJbrbFSqS8f+SdDOiDHIxmRVoWxHLt7CKGjC8vObAyPtIMd+F6zNYRFhA3xNMghAGztyvYgatydfEJre5S0xn5YFSys= dennisw@CA-MBP-773.local" ];
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      firefox
+      bitwarden
+    ];
   };
 
+  # Ensure zsh is enabled to be used as default shell for wsinned
+  programs.zsh.enable = true;
 
-  programs = {
-    git.enable = true;
-    zsh.enable = true;
-    dconf.enable = true;
-  };
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.wsinned = import ./home.nix;
-  };
+  environment.localBinInPath = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    avahi
-    duf
-    git
-    mc
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  wget
+    curl
     neovim
-    wget
-
-    # override themes for budgie
-    gnome.adwaita-icon-theme
-
-  ];
-
-  environment.localBinInPath = true;
-
-  environment.budgie.excludePackages = [
-    pkgs.mate.mate-terminal
-    pkgs.vlc
+    git
+    zsh
+    mc
   ];
 
 
@@ -164,7 +140,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -174,11 +150,10 @@
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
-  # on your system were taken. It's perfectly fine and recommended to leave
+  # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }
-

@@ -5,7 +5,7 @@
 	    enable = true;
 	    enableCompletion = true;
 	    enableAutosuggestions = true;
-	    syntaxHighlighting.enable = true;
+	    enableSyntaxHighlighting = true;
 	    oh-my-zsh = {
 	      enable = true;
 	      plugins = [ "git" "docker-compose" "docker" "asdf" ];

@@ -11,54 +11,22 @@
   # release notes.
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
-  # dconf watch / to check out settings changes
-
-  dconf = {
-    # these are the only settings that actually work
-    # don't bother with background, dark mode etc.
-    settings = {
-      #icons on budgie desktop disabled
-      "org/buddiesofbudgie/budgie-desktop-view" = {
-        show = false;
-      };
-
-      "org/gnome/desktop/peripherals/touchpad" = {
-        tap-to-click = true;
-      };
-
-      "org/gnome/desktop/interface" = {
-        cursor-theme = "Adwaita";
-      };
-    };
-  };
-  
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
     authy
-    baobab
     bitwarden
-    bitwarden-cli
     discord
     firefox
     ffmpeg
-    google-chrome
-    gparted
     gzip
     htop
     insync
-    jre_minimal
     meslo-lgs-nf
     neofetch
     p7zip
-    powertop
-    shutter
-    signal-desktop 
     slack
-    tlp
     tutanota-desktop
     tree
     ulauncher
@@ -130,86 +98,17 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" "docker-compose" "docker" ];
-    };
-    initExtraBeforeCompInit = ''
-      # p10k instant prompt
-      P10K_INSTANT_PROMPT="$XDG_CACHE_HOME/p10k-instant-prompt-''${(%):-%n}.zsh"
-      [[ ! -r "$P10K_INSTANT_PROMPT" ]] || source "$P10K_INSTANT_PROMPT"
-    '';
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "powerlevel10k-config";
-        src = /home/wsinned/tech-notes/dotfiles;
-        file = ".p10k.zsh";
-      }
-    ];
-    initExtra = ''
-      bindkey '^f' autosuggest-accept
-      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-      [[ ! -f ~/scripts/aliases.sh ]] || source ~/scripts/aliases.sh 
-    '';
-  };
+  # These are needed for desktop files and font registration
+  targets.genericLinux.enable = true;
+  programs.bash.enable = true;
+  fonts.fontconfig.enable = true;
 
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  imports = [
+    ./apps/oh-my-zsh.nix
+    ./apps/git.nix
+    ./apps/gh.nix
+    ./apps/kitty.nix
+  ];
 
-  programs.emacs = {
-    enable = true;
-    extraConfig = ''
-      (load-theme 'material t)
-      (global-linum-mode t)
-      (set-frame-font "MesloLGS NF 15" nil t)
-      (setq-default cursor-type 'bar)
-
-      (defun my-write-mode ()
-        (interactive)
-        (writeroom-mode t)
-        (visual-line-mode t)
-        (auto-save-visited-mode t))
-      
-      (global-set-key (kbd "<f5>") 'my-write-mode)
-    '';
-    extraPackages = epkgs: with epkgs; [
-      markdown-mode
-      material-theme
-      writeroom-mode
-      better-defaults
-    ];
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "Dennis Woodruff";
-    userEmail = "denniswoodruffuk@gmail.com";
-    extraConfig = {
-      init = { defaultBranch = "main"; };
-      push = { default = "current"; };
-      pull = { rebase = "true"; };
-      rebase = { autoStash = "true"; };
-    };
-  };
-
-  programs.gh = {
-    enable = true;
-    settings = {
-	    git_protocol = "https";
-	    prompt = "enabled";
-    };
-    enableGitCredentialHelper = true;
-  };
 }
+
