@@ -37,7 +37,6 @@
     gh
     kitty
     meld
-    postman
     vscode
 
     # python tools

@@ -5,6 +5,6 @@
 	    git_protocol = "https";
 	    prompt = "enabled";
     };
-    enableGitCredentialHelper = true;
+    gitCredentialHelper.enable = true;
   };
 }
