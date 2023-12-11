@@ -78,6 +78,10 @@
   # Flatpak
   services.flatpak.enable = true;
 
+  # Update policy
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = true;
+
   # Power management
   services.tlp = {
     enable = false;
