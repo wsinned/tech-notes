@@ -38,7 +38,7 @@
     gh
     kitty
     meld
-    vscode
+    # vscode
 
     # python tools
     python311Full
@@ -108,6 +108,7 @@
     ./apps/git.nix
     ./apps/gh.nix
     ./apps/kitty.nix
+    ./apps/unstable.nix
   ];
 
 }
