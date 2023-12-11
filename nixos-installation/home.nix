@@ -18,6 +18,7 @@
     authy
     bitwarden
     discord
+    dropbox
     firefox
     ffmpeg
     gzip
