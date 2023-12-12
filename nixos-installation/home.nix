@@ -38,7 +38,9 @@
     gh
     kitty
     meld
-    # vscode
+    
+    ltex-ls
+  
 
     # python tools
     python311Full

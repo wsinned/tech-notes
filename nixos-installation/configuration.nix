@@ -130,6 +130,9 @@
   # Ensure zsh is enabled to be used as default shell for wsinned
   programs.zsh.enable = true;
 
+  # Ensure we have a default java
+  programs.java.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
