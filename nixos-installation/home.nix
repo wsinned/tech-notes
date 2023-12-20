@@ -21,6 +21,7 @@
     dropbox
     firefox
     ffmpeg
+    google-chrome
     gzip
     htop
     insync
