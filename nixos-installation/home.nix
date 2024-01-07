@@ -82,6 +82,12 @@
     ".config/nixpkgs/config.nix".text = ''
       { allowUnfree = true; }
     '';
+
+    # create a nix.conf to enable experimental nix command
+    # flakes can be enabled here too
+    ".config/nix/nix.conf".text = ''
+      experimental-features = nix-command
+    '';
   };
 
   # You can also manage environment variables but you will have to manually

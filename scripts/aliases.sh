@@ -13,6 +13,10 @@ alias ci="git commit"
 alias ga="git add --all"
 
 
+# nix aliases
+alias nix-gens="nix profile history --profile /nix/var/nix/profiles/system"
+
+
 # vnc tunneling to pi4, 
 # params after -l are username hostname/ip
 # alias ssvnc='ssh -L 5901:127.0.0.1:5901 -C -N -l ubuntu ubuntu'
