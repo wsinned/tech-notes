@@ -18,7 +18,7 @@
     authy
     bitwarden
     discord
-    dropbox
+    dropbox-cli
     firefox
     ffmpeg
     google-chrome
@@ -29,6 +29,7 @@
     neofetch
     p7zip
     slack
+    steam
     tutanota-desktop
     tree
     ulauncher
