@@ -133,6 +133,9 @@
   # Ensure we have a default java
   programs.java.enable = true;
 
+  # enable steam
+  programs.steam.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -148,6 +151,7 @@
     git
     zsh
     mc
+    duf
   ];
 
 

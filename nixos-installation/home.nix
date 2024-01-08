@@ -29,7 +29,6 @@
     neofetch
     p7zip
     slack
-    steam
     tutanota-desktop
     tree
     ulauncher
