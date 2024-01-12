@@ -159,8 +159,10 @@
     duf
 
     # Gnome basics
+    # Don't forget to enable them in the Extensions App
     gnomeExtensions.appindicator
     gnomeExtensions.tiling-assistant
+    gnomeExtensions.auto-move-windows
   ];
 
 
