@@ -75,6 +75,11 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # gnome-settings udev rules
+  # Needed for some Gnome extensions
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+
+
   # Flatpak
   services.flatpak.enable = true;
 
@@ -152,6 +157,10 @@
     zsh
     mc
     duf
+
+    # Gnome basics
+    gnomeExtensions.appindicator
+    gnomeExtensions.tiling-assistant
   ];
 
 
