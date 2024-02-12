@@ -63,6 +63,17 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  environment.gnome.excludePackages = (with pkgs; [
+    epiphany # web browser
+    gnome.gnome-calendar
+    gnome.gnome-contacts
+    gnome.gnome-music
+    gnome-photos
+    gnome-tour
+    gnome.gnome-weather
+    gnome.geary # email reader
+  ]);
+
   # Configure keymap in X11
   services.xserver = {
     layout = "gb";
@@ -161,8 +172,9 @@
     # Gnome basics
     # Don't forget to enable them in the Extensions App
     gnomeExtensions.appindicator
-    gnomeExtensions.tiling-assistant
+    gnomeExtensions.gtile
     gnomeExtensions.auto-move-windows
+    gnomeExtensions.hibernate-status-button
   ];
 
 
