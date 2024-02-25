@@ -40,7 +40,9 @@
     meld
     
     ltex-ls
-  
+
+    # gaming
+    protontricks
 
     # python tools
     python311Full
@@ -116,7 +118,11 @@
     ./apps/git.nix
     ./apps/gh.nix
     ./apps/kitty.nix
-    ./apps/unstable.nix
+
+    # ./apps/gaming.nix
+
+    # use to get a more up to date vscode
+    # ./apps/unstable.nix 
   ];
 
 }

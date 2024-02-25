@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      <home-manager/nixos>
     ];
 
   # Bootloader.
@@ -140,9 +141,24 @@
     packages = with pkgs; [
       firefox
       bitwarden
+      vscode
     ];
   };
+  home-manager.users.wsinned = { pkgs, ... }: {
 
+  	imports = [
+  		"/home/wsinned/.config/home-manager/home.nix"
+  	];
+
+    # set inside home.nix
+    #home.stateVersion = "23.05";
+  };
+
+  # This saves an extra Nixpkgs evaluation, adds consistency, 
+  # and removes the dependency on NIX_PATH, which is otherwise 
+  # used for importing Nixpkgs.
+  home-manager.useGlobalPkgs = true;
+  
   # Ensure zsh is enabled to be used as default shell for wsinned
   programs.zsh.enable = true;
 
@@ -151,6 +167,7 @@
 
   # enable steam
   programs.steam.enable = true;
+
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -163,11 +180,13 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
     curl
+    wget
     neovim
     git
     zsh
     mc
     duf
+    nvd # Nix/NixOS package version diff tool
 
     # Gnome basics
     # Don't forget to enable them in the Extensions App
