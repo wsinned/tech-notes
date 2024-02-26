@@ -16,18 +16,14 @@
   # environment.
   home.packages = with pkgs; [
     bitwarden
-    discord
     dropbox-cli
     firefox
     ffmpeg
-    google-chrome
     gzip
     htop
-    insync
     meslo-lgs-nf
     neofetch
     p7zip
-    slack
     tutanota-desktop
     tree
     ulauncher
@@ -36,9 +32,6 @@
     # generic devtools
     direnv
     gh
-    kitty
-    meld
-    
     ltex-ls
 
     # gaming
@@ -118,8 +111,7 @@
     ./apps/git.nix
     ./apps/gh.nix
     ./apps/kitty.nix
-
-    # ./apps/gaming.nix
+    ./apps/unfree.nix
 
     # use to get a more up to date vscode
     # ./apps/unstable.nix 
