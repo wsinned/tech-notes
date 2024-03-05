@@ -24,6 +24,7 @@
     meslo-lgs-nf
     neofetch
     p7zip
+    qpdf
     tutanota-desktop
     tree
     ulauncher
