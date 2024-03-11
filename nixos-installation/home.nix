@@ -81,7 +81,7 @@
     # create a nix.conf to enable experimental nix command
     # flakes can be enabled here too
     ".config/nix/nix.conf".text = ''
-      experimental-features = nix-command
+      experimental-features = nix-command flakes
     '';
   };
 
