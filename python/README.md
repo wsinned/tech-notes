@@ -31,3 +31,9 @@ pipx reinstall-all
 ```
 
 This will update all the symbolic links in the virtual environments and your Python applications will work again.
+
+If there is a problem not finding python on NixOS, it is probably that the venv refers to a specific derivation that has been removed/garbage collected. Simply remove the venv and reinstall.
+
+```bash
+rm -rf .local/pipx/venvs/take-note-cli
+```
