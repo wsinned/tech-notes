@@ -3,7 +3,8 @@ alias ls='ls -F --color=auto --show-control-chars'
 alias ll='ls -lh'
 alias la='ls -alh'
 alias v='nvim'
-alias vs='code'
+# alias vs='code'
+alias vs='code-insiders'
 
 # git aliases
 alias g='git'
