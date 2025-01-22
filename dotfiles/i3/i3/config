@@ -29,7 +29,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 555555 --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -158,12 +158,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
+bindsym $mod+Shift+e mode "$mode_system"
 
-mode "mode_system" {     
+mode "$mode_system" {
 
-  bindsym l exec --no-startup-id i3lock-fancy-rapid 5 3, mode "default"     
+  bindsym l exec --no-startup-id i3lock --ignore-empty-password -c 555555, mode "default"
   bindsym e exec --no-startup-id i3-msg exit, mode "default"     
-  bindsym s exec --no-startup-id systemctl suspend && i3lock-fancy-rapid 5 3, mode "default"     
+  bindsym s exec --no-startup-id systemctl suspend && i3lock -c 555555, mode "default"
   bindsym r exec --no-startup-id systemctl reboot, mode "default"     
   bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
 
@@ -172,7 +173,6 @@ mode "mode_system" {
   bindsym Escape mode "default"  
 }  
 
-bindsym $mod+Shift+e mode "mode_system"  
 
 
 # exec_always --no-startup-id nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers/
