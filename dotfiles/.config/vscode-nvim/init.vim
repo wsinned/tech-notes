@@ -1,0 +1,14 @@
+autoindent=true
+clipboard="unnamedplus"
+expandtab=true
+fileencoding="utf-8"
+number=true
+relativenumber=true
+shiftwidth=2
+spell=false
+splitbelow=true
+splitright=true
+swapfile=false
+tabstop=2
+termguicolors=true
+wrap=false
