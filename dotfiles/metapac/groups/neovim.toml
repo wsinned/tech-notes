@@ -1,0 +1,6 @@
+arch = [
+    "neovim",
+    "fzf",
+    "lazygit",
+    "ripgrep",
+]
