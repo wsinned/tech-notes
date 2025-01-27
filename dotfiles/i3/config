@@ -18,7 +18,8 @@ font pango:monospace 8
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-font pango:MesloLGS NF 10
+#font pango:MesloLGS NF 10
+font pango: Noto Sans Regular 10
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -29,7 +30,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 555555 --nofork
+exec --no-startup-id xss-lock -l ~/.config/i3/scripts/blur-lock
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -162,7 +163,7 @@ bindsym $mod+Shift+e mode "$mode_system"
 
 mode "$mode_system" {
 
-  bindsym l exec --no-startup-id i3lock --ignore-empty-password -c 555555, mode "default"
+  bindsym l exec --no-startup-id ~/.config/i3/scripts/blur-lock
   bindsym e exec --no-startup-id i3-msg exit, mode "default"     
   bindsym s exec --no-startup-id systemctl suspend && i3lock -c 555555, mode "default"
   bindsym r exec --no-startup-id systemctl reboot, mode "default"     
