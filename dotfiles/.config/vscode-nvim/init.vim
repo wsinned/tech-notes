@@ -1,14 +1,14 @@
-autoindent=true
-clipboard="unnamedplus"
-expandtab=true
-fileencoding="utf-8"
-number=true
-relativenumber=true
-shiftwidth=2
-spell=false
-splitbelow=true
-splitright=true
-swapfile=false
-tabstop=2
-termguicolors=true
-wrap=false
+set autoindent
+set clipboard="unnamedplus"
+set expandtab
+set fileencoding="utf-8"
+set number
+set relativenumber
+set shiftwidth=2
+set nospell
+set splitbelow
+set splitright
+set noswapfile
+set tabstop=2
+set termguicolors
+set nowrap
