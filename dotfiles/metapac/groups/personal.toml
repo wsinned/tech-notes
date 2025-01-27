@@ -1,0 +1,10 @@
+arch = [
+    "autorandr",
+    "flatpak",
+    "github-cli",
+    "kitty",
+    "metapac",
+    "ttf-meslo-nerd",
+    "visual-studio-code-bin",
+    "yazi"
+]
