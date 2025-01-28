@@ -2,6 +2,7 @@ arch = [
     "adw-gtk-theme",
     "autorandr",
     "flatpak",
+    "font-manager",
     "github-cli",
     "kitty",
     "metapac",
