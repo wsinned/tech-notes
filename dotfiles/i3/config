@@ -230,7 +230,7 @@ mode "$mode_system" {
 
 bar {
        font pango:DejaVu Sans Mono 12 
-       position bottom
+       position top
        tray_padding 0
        status_command i3blocks -c ~/.config/i3/i3blocks.conf
 
