@@ -185,10 +185,10 @@ bindsym $mod+Shift+e mode "$mode_system"
 
 mode "$mode_system" {
 
-  bindsym l exec --no-startup-id ~/.config/i3/scripts/blur-lock
-  bindsym e exec --no-startup-id i3-msg exit, mode "default"     
-  bindsym s exec --no-startup-id systemctl suspend && i3lock -c 555555, mode "default"
-  bindsym r exec --no-startup-id systemctl reboot, mode "default"     
+  bindsym l exec --no-startup-id ~/.config/i3/scripts/blur-lock, mode "default"
+  bindsym e exec --no-startup-id i3-msg exit, mode "default"
+  bindsym s exec --no-startup-id systemctl suspend, mode "default"
+  bindsym r exec --no-startup-id systemctl reboot, mode "default"
   bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
 
   # back to normal: Enter or Escape     
