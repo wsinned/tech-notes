@@ -1,4 +1,5 @@
 arch = [
+    "adw-gtk-theme",
     "autorandr",
     "flatpak",
     "github-cli",
