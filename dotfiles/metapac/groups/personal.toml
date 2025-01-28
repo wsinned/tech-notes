@@ -5,6 +5,7 @@ arch = [
     "github-cli",
     "kitty",
     "metapac",
+    "python-pipx",
     "ttf-meslo-nerd",
     "visual-studio-code-bin",
     "yazi"

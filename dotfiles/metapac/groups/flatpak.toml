@@ -1,3 +1,4 @@
 flatpak = [
     { package = "com.geekbench.Geekbench6", remote = "flathub"},
+    { package = "md.obsidian.Obsidian", remote = "flathub"},
 ]
