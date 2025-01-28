@@ -1,10 +1,10 @@
 # misc aliases
 alias ls='ls -F --color=auto --show-control-chars'
 alias ll='ls -lh'
-alias la='ls -alh'
+# alias la='ls -alh'
 alias v='nvim'
-# alias vs='code'
-alias vs='code-insiders'
+alias vs='code'
+# alias vs='code-insiders'
 
 # git aliases
 alias g='git'
@@ -15,7 +15,7 @@ alias ga="git add --all"
 
 
 # nix aliases
-alias nix-gens="nix profile history --profile /nix/var/nix/profiles/system"
+# alias nix-gens="nix profile history --profile /nix/var/nix/profiles/system"
 
 
 # vnc tunneling to pi4, 
@@ -25,8 +25,8 @@ alias nix-gens="nix profile history --profile /nix/var/nix/profiles/system"
 #network switcher
 # alias wifi='~/scripts/network-switcher.py'
 
-notes_folder="$HOME/Insync/denniswoodruffuk@gmail.com/Google\ Drive/Notes"
-args="--notesFolder $notes_folder --workspace notes.code-workspace --template Home-weekly-log-template.md --batch 5"
-alias thisWeek="take-note --thisWeek $args"
-alias nextWeek="take-note --nextWeek $args"
-alias lastWeek="take-note --lastWeek $args"
+# notes_folder="$HOME/Insync/denniswoodruffuk@gmail.com/Google\ Drive/Notes"
+# args="--notesFolder $notes_folder --workspace notes.code-workspace --template Home-weekly-log-template.md --batch 5"
+# alias thisWeek="take-note --thisWeek $args"
+# alias nextWeek="take-note --nextWeek $args"
+# alias lastWeek="take-note --lastWeek $args"
