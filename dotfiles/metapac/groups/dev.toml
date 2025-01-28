@@ -1,3 +1,4 @@
 arch = [
     "nodejs-lts-jod",
+    "exercism-bin",
 ]
