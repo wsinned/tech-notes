@@ -1,4 +1,6 @@
 arch = [
-    "nodejs-lts-jod",
-    "exercism-bin",
+    "nodejs-lts-jod", 
+    "exercism-bin", 
+    "xorg-xev"
 ]
+
