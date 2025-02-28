@@ -4,5 +4,13 @@ flatpak_systemwide = true
 hostname_groups_enabled = true
 
 [hostname_groups]
-dw-apollo = ["endeavour", "arch", "flatpak", "dev", "neovim", "personal"]
+dw-apollo = [
+  "endeavour",
+  "arch",
+  "flatpak",
+  "dev",
+  "neovim",
+  "personal",
+  "pipx",
+]
 dw-hp-lt = ["hp-lt", "arch", "flatpak", "dev", "neovim", "personal"]
