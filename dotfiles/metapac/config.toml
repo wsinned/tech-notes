@@ -5,4 +5,4 @@ hostname_groups_enabled = true
 
 [hostname_groups]
 dw-apollo = ["endeavour", "arch", "flatpak", "dev", "neovim", "personal"]
-dw-hp-lt = ["arch", "flatpak", "dev", "neovim", "personal"]
+dw-hp-lt = ["hp-lt", "arch", "flatpak", "dev", "neovim", "personal"]

@@ -1,0 +1,16 @@
+arch = [
+  "htop",
+  "intel-media-driver",
+  "libpulse",
+  "libva-intel-driver",
+  "lightdm-gtk-greeter",
+  "pipewire",
+  "vulkan-intel",
+  "vulkan-radeon",
+  "wireless_tools",
+  "xf86-video-amdgpu",
+  "xf86-video-ati",
+  "xf86-video-nouveau",
+  "xf86-video-vmware",
+  "zram-generator",
+]

@@ -186,7 +186,6 @@ arch = [
   "usb_modeswitch",
   "usbutils",
   "vi",
-  "welcome",
   "wget",
   "which",
   "wireplumber",

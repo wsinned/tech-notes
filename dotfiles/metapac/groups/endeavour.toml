@@ -13,4 +13,5 @@ arch = [
   "eos-quickstart",
   "eos-rankmirrors",
   "eos-settings-i3wm",
+  "welcome",
 ]
