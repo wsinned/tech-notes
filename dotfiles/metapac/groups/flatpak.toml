@@ -1,4 +1,6 @@
 flatpak = [
-    { package = "com.geekbench.Geekbench6", remote = "flathub"},
-    { package = "md.obsidian.Obsidian", remote = "flathub"},
+  { package = "com.geekbench.Geekbench6", remote = "flathub" },
+  { package = "md.obsidian.Obsidian", remote = "flathub" },
+  { package = "com.ktechpit.whatsie", remote = "flathub" },
 ]
+
