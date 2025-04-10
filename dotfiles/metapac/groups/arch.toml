@@ -70,7 +70,6 @@ arch = [
   "gvfs-smb",
   "haveged",
   "hdparm",
-  "hplip",
   "hwdetect",
   "hwinfo",
   "i3-wm",
