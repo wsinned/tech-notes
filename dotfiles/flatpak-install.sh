@@ -1,1 +1,1 @@
-cat ~/tech-notes/dotfiles/Flatpakfile | xargs flatpak install -y
+cat ~/tech-notes/dotfiles/Flatpakfile | xargs flatpak install -y > /dev/null
