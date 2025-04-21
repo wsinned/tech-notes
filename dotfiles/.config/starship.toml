@@ -151,7 +151,7 @@ disabled = true
 
 [os]
 disabled = false
-format = "[ ❮ ](#767676)[]($style)"
+format = "[ ❮ ](#767676)[ ]($style)"
 
 [custom.disk-linux]
 description = "Show disk used"
