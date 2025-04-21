@@ -10,6 +10,6 @@ test -f /usr/share/ublue-os/bling/bling.fish && source /usr/share/ublue-os/bling
 abbr la eza -l --all --icons=auto --group-directories-first
 abbr g git
 abbr s git status -sbu
-abbr l git log --pretty=format:'%Cgreen%h%d %Creset%s %Cred%an, %Cgreen%ar%Creset' --graph
+abbr l git log --pretty=format:'"%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s"' --date=short --graph
 abbr ci git commit
 abbr ga git add --all
