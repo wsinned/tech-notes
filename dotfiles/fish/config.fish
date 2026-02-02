@@ -171,13 +171,14 @@ alias h='history'
 alias c='clear'
 
 # Git shortcuts
-alias gs='git status'
+alias g='git'
+alias s='git status -sbu'
 alias ga='git add'
 alias gc='git commit'
 alias gcl='git clone'
 alias gl='git log --oneline'
 alias gd='git diff'
-alias gpush='git push'
+alias gpush='git push origin HEAD'
 alias gpull='git pull'
 
 # System control
