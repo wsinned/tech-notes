@@ -2,7 +2,6 @@
 spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
 spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/Everforest/Dark/2014-05-30-115759_14712752368_o.jpg -m fill -o \"*\""
 spawn-at-startup "waybar"
-// spawn-at-startup "sh" "-c" "vicinae server &"
 spawn-sh-at-startup "vicinae server"
 
 // General Settings
@@ -397,7 +396,7 @@ switch-events {
 
 // Environment Variables
 environment {
-    DISPLAY null
+    //DISPLAY null // why was this here?
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     XDG_SESSION_TYPE "wayland"
     XDG_CURRENT_DESKTOP "niri"
