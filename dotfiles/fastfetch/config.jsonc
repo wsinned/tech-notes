@@ -60,6 +60,11 @@
       "keyColor": "37"
     },
     {
+      "type": "gpu",
+      "key": "GPU   ",
+      "keyColor": "37"
+    },
+    {
       "type": "memory",
       "key": "Memory",
       "keyColor": "37"
