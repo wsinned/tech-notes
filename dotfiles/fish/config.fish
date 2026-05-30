@@ -200,3 +200,8 @@ set -gx PATH $GOPATH/bin $PATH
 set -gx CARGO_HOME $HOME/.cargo
 set -gx PATH $CARGO_HOME/bin $PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+######################
+### Extra includes ###
+######################
+test -f ~/.config/fish/claw.fish && source ~/.config/fish/claw.fish
