@@ -1,6 +1,9 @@
 # Disable greeting
 set -U fish_greeting ""
 
+# init homebrew early so that atuin works
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # Starship prompt
 if status is-interactive
     set -gx STARSHIP_CONFIG $HOME/.config/starship/starship.toml
@@ -199,7 +202,6 @@ set -gx GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 set -gx CARGO_HOME $HOME/.cargo
 set -gx PATH $CARGO_HOME/bin $PATH
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 ######################
 ### Extra includes ###
