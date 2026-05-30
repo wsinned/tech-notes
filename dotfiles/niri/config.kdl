@@ -4,6 +4,9 @@ spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/Everforest/Dark/2014-05-30-
 spawn-at-startup "waybar"
 spawn-sh-at-startup "vicinae server"
 
+// This only runs on my openclaw laptop to lock it immediately after login
+spawn-at-startup "sh" "-c" "[ \"$(hostname)\" = \"dw-hp-01\" ] && sleep 3 && swaylock"
+
 // General Settings
 prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
