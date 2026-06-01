@@ -1,0 +1,5 @@
+[default]
+notesFolder = "~/Documents/Personal/Weekly/"
+editor = "obsidian"
+template = "../Templates/Weekly.md"
+batch = 3
