@@ -206,4 +206,6 @@ set -gx PATH $CARGO_HOME/bin $PATH
 ######################
 ### Extra includes ###
 ######################
-test -f ~/.config/fish/claw.fish && source ~/.config/fish/claw.fish
+if test $(hostname) = dw-hp-01
+    test -f ~/.config/fish/claw.fish && source ~/.config/fish/claw.fish
+end
