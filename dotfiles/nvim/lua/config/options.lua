@@ -4,7 +4,8 @@
 -- File handling: Swap, Backup, Undo
 -- Store swap files in the same directory as the file being edited
 vim.opt.swapfile = true
-vim.opt.directory = "."
+-- vim.opt.directory = "."
+vim.opt.directory = vim.fn.expand("~/.local/share/nvim/swap//")
 
 -- Store backup files in the same directory as the file being edited
 vim.opt.backup = false -- Disable backups if you prefer (they can clutter directories)
@@ -22,19 +23,19 @@ vim.opt.undodir = vim.fn.stdpath("data") .. "/undo//" -- Use Neovim's data direc
 
 -- Ensure terminal opens in current working directory
 vim.api.nvim_create_autocmd("TermOpen", {
-    callback = function()
-        vim.opt_local.number = false
-        vim.opt_local.relativenumber = false
-        vim.opt_local.signcolumn = "no"
-    end
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.opt_local.signcolumn = "no"
+  end,
 })
 
 -- Ensure format on save is enabled
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    callback = function(args)
-        require("conform").format({
-            bufnr = args.buf
-        })
-    end
+  pattern = "*",
+  callback = function(args)
+    require("conform").format({
+      bufnr = args.buf,
+    })
+  end,
 })
