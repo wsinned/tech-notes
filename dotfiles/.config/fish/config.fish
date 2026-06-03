@@ -202,6 +202,7 @@ set -gx GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 set -gx CARGO_HOME $HOME/.cargo
 set -gx PATH $CARGO_HOME/bin $PATH
+set -gx EDITOR nvim
 
 ######################
 ### Extra includes ###
