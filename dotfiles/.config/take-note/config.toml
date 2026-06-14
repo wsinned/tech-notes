@@ -1,5 +1,11 @@
 [default]
-notesFolder = "~/Documents/Personal/Weekly/"
+notesFolder = "~/Documents/Personal/Notes/"
 editor = "obsidian"
+
+[daily]
+template = "../Templates/Daily.md"
+batch = 1
+
+[weekly]
 template = "../Templates/Weekly.md"
 batch = 3
