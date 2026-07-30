@@ -1,0 +1,5 @@
+// Built-in panel on dw-hp-01.
+output "eDP-1" {
+    mode "1920x1080@60.056"
+    scale 1
+}
