@@ -1,0 +1,3 @@
+// Niri will use the panel's preferred mode and automatic scale on dw-dell.
+// After installation, run `niri msg outputs` and add an output block here
+// using the reported manufacturer, model, and serial if overrides are needed.
