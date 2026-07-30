@@ -7,14 +7,15 @@ spawn-sh-at-startup "vicinae server"
 // This only runs on my openclaw laptop to lock it immediately after login
 spawn-at-startup "sh" "-c" "[ \"$(hostname)\" = \"dw-hp-01\" ] && sleep 3 && swaylock"
 
+// Select the output fragment for this hostname. On first use, creating the
+// symlink causes Niri to reload this optional include automatically.
+spawn-sh-at-startup "~/.config/niri/outputs/select-device-output.sh"
+
 // General Settings
 prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
 
-// Device-specific output settings use the panel identity reported by
-// `niri msg outputs`, so they do not collide on the common eDP-1 connector.
-include "outputs/dw-hp-01.kdl"
-include "outputs/dw-dell.kdl"
+include optional=true "outputs/current.kdl"
 
 input {
     keyboard {

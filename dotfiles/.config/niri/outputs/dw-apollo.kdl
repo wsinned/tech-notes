@@ -1,0 +1,5 @@
+// Built-in panel on dw-apollo.
+output "eDP-1" {
+    mode "1920x1080@60.024"
+    scale 1
+}
