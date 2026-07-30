@@ -11,10 +11,10 @@ spawn-at-startup "sh" "-c" "[ \"$(hostname)\" = \"dw-hp-01\" ] && sleep 3 && swa
 prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
 
-output "eDP-1" {
-    mode "1920x1080@60.024"
-    scale 1
-}
+// Device-specific output settings use the panel identity reported by
+// `niri msg outputs`, so they do not collide on the common eDP-1 connector.
+include "outputs/dw-hp-01.kdl"
+include "outputs/dw-dell.kdl"
 
 input {
     keyboard {
@@ -433,4 +433,3 @@ environment {
     VDPAU_DRIVER "va_gl"
     LIBVA_DRIVER_NAME "iHD"
 }
-
