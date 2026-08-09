@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 options="Lock\nLogout\nReboot\nShutdown\nSuspend\nHibernate\nExit"
 chosen=$(echo -e "$options" | vicinae dmenu --placeholder "Power Menu" --width 300 --height 400)
 
