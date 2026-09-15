@@ -300,14 +300,6 @@ window-rule {
 
 // File dialogs - Open/Save/Select
 window-rule {
-    match title=r#".*(Open|Save|Select).*"#
-    open-floating true
-    default-column-width { proportion 0.0; }
-    max-width 800
-    max-height 1000
-}
-
-window-rule {
     match title=r#".*File.*"#
     open-floating true
     default-column-width { proportion 0.0; }
@@ -331,11 +323,6 @@ window-rule {
 // System dialogs
 window-rule {
     match title=r#".*(Dialog|Properties|Preferences|Settings|Rename).*"#
-    open-floating true
-}
-
-window-rule {
-    match app-id=r#"zenity"#
     open-floating true
 }
 
