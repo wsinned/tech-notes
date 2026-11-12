@@ -79,7 +79,7 @@ binds {
     MOD+SHIFT+Q                         hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
     MOD+SPACE                           hotkey-overlay-title="Open App Launcher: vicinae" { spawn-sh "vicinae toggle"; }
     MOD+B                               hotkey-overlay-title="Open Browser: firefox" { spawn-sh "firefox"; }
-    MOD+E                               hotkey-overlay-title="File Manager: Files" { spawn-sh "nautilus"; }
+    MOD+E                               hotkey-overlay-title="File Manager" { spawn-sh "xdg-open \"$HOME\""; }
     MOD+ALT+E                           hotkey-overlay-title="File Manager: Yazi" { spawn-sh "yazi"; }
     MOD+W                               hotkey-overlay-title="Open Wallpaper Selector" { spawn-sh "$HOME/.config/scripts/bgselector.sh"; }
 
