@@ -1,0 +1,10 @@
+profile nanokvm {
+    output eDP-1 enable
+    output "PNP(SPD) NanoKVM-Go 0x00003039" mode 1920x1080@60Hz
+    exec ~/.local/bin/nanokvm-mirror
+}
+
+profile laptop {
+    output eDP-1 enable
+    exec pkill -x wl-mirror
+}
