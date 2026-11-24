@@ -10,6 +10,7 @@ spawn-at-startup "sh" "-c" "[ \"$(hostname)\" = \"dw-hp-01\" ] && sleep 3 && swa
 // Select the output fragment for this hostname. On first use, creating the
 // symlink causes Niri to reload this optional include automatically.
 spawn-sh-at-startup "~/.config/niri/outputs/select-device-output.sh"
+spawn-at-startup "kanshi"
 
 // General Settings
 prefer-no-csd
