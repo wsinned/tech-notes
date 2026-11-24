@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pkill -x wl-mirror || true
+sleep 1
+exec wl-mirror --fullscreen-output DP-1 eDP-1
